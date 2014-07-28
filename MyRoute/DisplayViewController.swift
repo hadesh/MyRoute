@@ -164,8 +164,10 @@ class DisplayViewController: UIViewController, MAMapViewDelegate {
                 }
             })
         
-        let view: MAAnnotationView = mapView!.viewForAnnotation(myLocation)
-        view.transform = CGAffineTransformMakeRotation(CGFloat(heading / 180.0 * M_PI));
+        var view: MAAnnotationView? = mapView!.viewForAnnotation(myLocation)
+        if view {
+            view!.transform = CGAffineTransformMakeRotation(CGFloat(heading / 180.0 * M_PI));
+        }
     }
     
     /// MAMapViewDelegate
