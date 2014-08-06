@@ -11,7 +11,7 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    let apiKey = ##your api key##
+    let apiKey = "0607d330ac24bbc41242055c9114cc58"
     
     var window: UIWindow?
     var viewController: MainViewController?

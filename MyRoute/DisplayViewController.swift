@@ -103,8 +103,11 @@ class DisplayViewController: UIViewController, MAMapViewDelegate {
         else {
             navigationItem.rightBarButtonItem.image = UIImage(named: "icon_play.png")
             
-            let view: MAAnnotationView = mapView!.viewForAnnotation(myLocation)
-            view.layer.removeAllAnimations()
+            var view: MAAnnotationView? = mapView!.viewForAnnotation(myLocation)
+            if view {
+                view!.layer.removeAllAnimations()
+            }
+            
         }
     }
     
