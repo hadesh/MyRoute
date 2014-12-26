@@ -28,6 +28,10 @@ class MainViewController: UIViewController, MAMapViewDelegate {
         initMapView()
         initTipView()
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        
+    }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -41,16 +45,14 @@ class MainViewController: UIViewController, MAMapViewDelegate {
         
         mapView = MAMapView(frame: self.view.bounds)
         mapView!.delegate = self
-        self.view.addSubview(mapView)
-        self.view.sendSubviewToBack(mapView)
+        self.view.addSubview(mapView!)
+        self.view.sendSubviewToBack(mapView!)
         
         mapView!.showsUserLocation = true
         mapView!.userTrackingMode = MAUserTrackingMode.Follow
         
         mapView!.distanceFilter = 10.0
         mapView!.desiredAccuracy = kCLLocationAccuracyBestForNavigation
-        
-        mapView!.setZoomLevel(15.1, animated: true)
     }
     
     func initToolBar() {
@@ -78,19 +80,19 @@ class MainViewController: UIViewController, MAMapViewDelegate {
         
         locationButton!.setImage(imageNotLocate, forState: UIControlState.Normal)
         
-        view.addSubview(locationButton)
+        view.addSubview(locationButton!)
     }
     
     func initTipView() {
         
         tipView = TipView(frame: CGRectMake(0, 0, CGRectGetWidth(view.bounds), 30))
-        view.addSubview(tipView)
+        view.addSubview(tipView!)
         
         statusView = StatusView(frame: CGRectMake(5, 35, 150, 150))
         
         statusView!.showStatusInfo(nil)
         
-        view.addSubview(statusView)
+        view.addSubview(statusView!)
         
     }
     
@@ -110,7 +112,7 @@ class MainViewController: UIViewController, MAMapViewDelegate {
         let historyController = RecordViewController(nibName: nil, bundle: nil)
         historyController.title = "Records"
         
-        navigationController.pushViewController(historyController, animated: true)
+        navigationController!.pushViewController(historyController, animated: true)
     }
     
     func actionRecordAndStop() {
@@ -121,7 +123,7 @@ class MainViewController: UIViewController, MAMapViewDelegate {
         if isRecording {
             
             showTip("Start recording...")
-            navigationItem.leftBarButtonItem.image = UIImage(named: "icon_stop.png")
+            navigationItem.leftBarButtonItem!.image = UIImage(named: "icon_stop.png")
             
             if currentRoute == nil {
                 currentRoute = Route()
@@ -130,7 +132,7 @@ class MainViewController: UIViewController, MAMapViewDelegate {
             addLocation(mapView!.userLocation.location)
         }
         else {
-            navigationItem.leftBarButtonItem.image = UIImage(named: "icon_play.png")
+            navigationItem.leftBarButtonItem!.image = UIImage(named: "icon_play.png")
 
             addLocation(mapView!.userLocation.location)
             hideTip()
@@ -173,7 +175,7 @@ class MainViewController: UIViewController, MAMapViewDelegate {
         
 //        println("path: \(path)")
         
-        NSKeyedArchiver.archiveRootObject(currentRoute, toFile: path)
+        NSKeyedArchiver.archiveRootObject(currentRoute!, toFile: path!)
         
         currentRoute = nil
     }

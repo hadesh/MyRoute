@@ -22,11 +22,11 @@ class FileHelper: NSObject {
         
         var isDir: ObjCBool = false
         
-        var pathSuccess: Bool = NSFileManager.defaultManager().fileExistsAtPath(document, isDirectory: &isDir)
+        var pathSuccess: Bool = NSFileManager.defaultManager().fileExistsAtPath(document!, isDirectory: &isDir)
         
-        if !pathSuccess || !isDir.getLogicValue() {
+        if (!pathSuccess || !isDir) {
             
-            pathSuccess = NSFileManager.defaultManager().createDirectoryAtPath(document, withIntermediateDirectories: true, attributes: nil, error: nil)
+            pathSuccess = NSFileManager.defaultManager().createDirectoryAtPath(document!, withIntermediateDirectories: true, attributes: nil, error: nil)
         }
         
         return pathSuccess ? document? : nil
@@ -40,7 +40,7 @@ class FileHelper: NSObject {
             
             var error: NSError?
             
-            var result = NSFileManager.defaultManager().contentsOfDirectoryAtPath(document, error: &error)
+            var result = NSFileManager.defaultManager().contentsOfDirectoryAtPath(document!, error: &error)
             if error != nil {
                 println("error: \(error)")
             }
@@ -65,7 +65,7 @@ class FileHelper: NSObject {
         
         var list: [AnyObject]? = recordFileList()
         
-        if list {
+        if (list != nil) {
             
             var routeList: [Route] = []
             
@@ -74,10 +74,10 @@ class FileHelper: NSObject {
                 println("file: \(file)")
                 
                 let path = recordPathWithName(file)
-                var route = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as? Route
+                var route = NSKeyedUnarchiver.unarchiveObjectWithFile(path!) as? Route
                 
                 if route != nil {
-                    routeList += route!
+                    routeList.append(route!)
                 }
             }
             
@@ -91,7 +91,7 @@ class FileHelper: NSObject {
         let path = recordPathWithName(file)
         
         var error: NSError?
-        var success = NSFileManager.defaultManager().removeItemAtPath(path, error: &error)
+        var success = NSFileManager.defaultManager().removeItemAtPath(path!, error: &error)
         if error != nil {
             println("error: \(error)")
         }

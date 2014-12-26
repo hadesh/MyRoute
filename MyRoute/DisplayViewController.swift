@@ -33,8 +33,8 @@ class DisplayViewController: UIViewController, MAMapViewDelegate {
         
         mapView = MAMapView(frame: self.view.bounds)
         mapView!.delegate = self
-        self.view.addSubview(mapView)
-        self.view.sendSubviewToBack(mapView)
+        self.view.addSubview(mapView!)
+        self.view.sendSubviewToBack(mapView!)
     }
     
     func initToolBar() {
@@ -81,16 +81,16 @@ class DisplayViewController: UIViewController, MAMapViewDelegate {
     func actionPlayAndStop() {
         println("actionPlayAndStop")
         
-        if !route {
+        if route == nil {
             return
         }
         
         isPlaying = !isPlaying
         
         if isPlaying {
-            navigationItem.rightBarButtonItem.image = UIImage(named: "icon_stop.png")
+            navigationItem.rightBarButtonItem!.image = UIImage(named: "icon_stop.png")
             
-            if !myLocation {
+            if myLocation == nil {
                 myLocation = MAPointAnnotation()
                 myLocation!.title = "AMap"
                 myLocation!.coordinate = route!.startLocation()!.coordinate
@@ -101,10 +101,10 @@ class DisplayViewController: UIViewController, MAMapViewDelegate {
             animateToNextCoordinate()
         }
         else {
-            navigationItem.rightBarButtonItem.image = UIImage(named: "icon_play.png")
+            navigationItem.rightBarButtonItem!.image = UIImage(named: "icon_play.png")
             
             var view: MAAnnotationView? = mapView!.viewForAnnotation(myLocation)
-            if view {
+            if view != nil {
                 view!.layer.removeAllAnimations()
             }
             
@@ -134,7 +134,7 @@ class DisplayViewController: UIViewController, MAMapViewDelegate {
     
     func animateToNextCoordinate() {
         
-        if !myLocation {
+        if myLocation == nil {
             return
         }
         
@@ -168,7 +168,7 @@ class DisplayViewController: UIViewController, MAMapViewDelegate {
             })
         
         var view: MAAnnotationView? = mapView!.viewForAnnotation(myLocation)
-        if view {
+        if view != nil {
             view!.transform = CGAffineTransformMakeRotation(CGFloat(heading / 180.0 * M_PI));
         }
     }

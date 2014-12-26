@@ -12,7 +12,7 @@ class TipView: UIView {
 
     var label: UILabel
     
-    init(frame: CGRect) {
+    override init(frame: CGRect) {
         
         label = UILabel(frame: CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame)))
         super.init(frame: frame)
@@ -25,6 +25,10 @@ class TipView: UIView {
         label.autoresizingMask = UIViewAutoresizing.FlexibleWidth
         
         self.addSubview(label)
+    }
+
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     func showTip(tip: String?) {

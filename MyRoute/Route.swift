@@ -16,12 +16,11 @@ class Route: NSObject, NSCoding {
     var endTime: NSDate
     var locations: NSMutableArray
     
-    init() {
+    override init() {
         
         startTime = NSDate()
         endTime = startTime
-        locations = NSMutableArray.array()
-        
+        locations = NSMutableArray()
     }
     
     deinit {
@@ -30,14 +29,12 @@ class Route: NSObject, NSCoding {
     
     /// NSCoding
     
-    func encodeWithCoder(aCoder: NSCoder!) {
+    func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(startTime, forKey: "startTime")
         aCoder.encodeObject(endTime, forKey: "endTime")
         aCoder.encodeObject(locations, forKey: "locations")
     }
-    
-    init(coder aDecoder: NSCoder!) {
-        
+    required init(coder aDecoder: NSCoder) {
         startTime = aDecoder.decodeObjectForKey("startTime") as NSDate
         endTime = aDecoder.decodeObjectForKey("endTime") as NSDate
         locations = aDecoder.decodeObjectForKey("locations") as NSMutableArray
@@ -62,7 +59,7 @@ class Route: NSObject, NSCoding {
             }
         }
         
-        locations.addObject(location)
+        locations.addObject(location!)
         endTime = NSDate()
         
         return true
@@ -146,7 +143,7 @@ class Route: NSObject, NSCoding {
                 
                 let loc = location as CLLocation
                 
-                coordinates += loc.coordinate
+                coordinates.append(loc.coordinate)
             }
         }
         return coordinates

@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         viewController!.title = "My Route";
         
-        let naviController = UINavigationController(rootViewController: viewController);
+        let naviController = UINavigationController(rootViewController: viewController!);
         
         window!.rootViewController = naviController;
         window!.makeKeyAndVisible();

@@ -17,7 +17,7 @@ class StatusView: UIView {
     private var originalFrame: CGRect
     private var isOpen: Bool
     
-    init(frame: CGRect) {
+    override init(frame: CGRect) {
         
         isOpen = true
         textView = UITextView(frame: CGRectMake(0, controlHeight, CGRectGetWidth(frame), CGRectGetHeight(frame)))
@@ -41,11 +41,15 @@ class StatusView: UIView {
         ///
         control.frame = CGRectMake(0, 0, CGRectGetWidth(frame), controlHeight)
         control.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6)
-        control.titleLabel.font = UIFont.systemFontOfSize(16)
+        control.titleLabel!.font = UIFont.systemFontOfSize(16)
         control.setTitle("Opened", forState: UIControlState.Normal)
         control.addTarget(self, action: "actionSwitch", forControlEvents: UIControlEvents.TouchUpInside)
         
         addSubview(control)
+    }
+
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     func actionSwitch() {
@@ -75,7 +79,7 @@ class StatusView: UIView {
     
     func showStatusInfo(info: [(String, String)]?) {
         
-        if !info {
+        if info == nil {
             textView.text = ""
         }
         else {

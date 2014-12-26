@@ -13,10 +13,14 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
     var tableView: UITableView?
     var routes: [Route]
     
-    init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
+    override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
         
         routes = FileHelper.routesArray()
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
@@ -33,7 +37,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
         tableView!.delegate = self
         tableView!.dataSource = self
         
-        view.addSubview(tableView)
+        view.addSubview(tableView!)
     }
     
     /// Helpers
@@ -51,14 +55,11 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
         
     /// UITableViewDataSource
     
-    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
-
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return routes.count
-        
     }
     
-    func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellIdentifier = "routeCellIdentifier"
         
         var cell: UITableViewCell? = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? UITableViewCell
@@ -72,11 +73,11 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
             
             let route: Route = routes[indexPath.row]
             
-            cell!.textLabel.text = route.title()
-            cell!.detailTextLabel.text = route.detail()
+            cell!.textLabel!.text = route.title()
+            cell!.detailTextLabel!.text = route.detail()
         }
         
-        return cell
+        return cell!
     }
     
     func tableView(tableView: UITableView!, canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
@@ -109,7 +110,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
             displayController.title = "Display"
             displayController.route = route
             
-            navigationController.pushViewController(displayController, animated: true)
+            navigationController!.pushViewController(displayController, animated: true)
         }
   
     }

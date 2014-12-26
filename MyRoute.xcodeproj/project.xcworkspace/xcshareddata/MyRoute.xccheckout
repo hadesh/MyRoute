@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>21A4BB5D-754D-4899-939D-6271D1C662E1</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MyRoute</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>285ED93DD089BC42E842975B0587DADA800451B1</key>
+		<string>https://github.com/hadesh/MyRoute.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MyRoute.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>285ED93DD089BC42E842975B0587DADA800451B1</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/hadesh/MyRoute.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>285ED93DD089BC42E842975B0587DADA800451B1</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>285ED93DD089BC42E842975B0587DADA800451B1</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MyRoute</string>
+		</dict>
+	</array>
+</dict>
+</plist>

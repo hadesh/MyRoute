@@ -20,7 +20,6 @@
 		8101BE50197CBC620042E4EA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8101BE4F197CBC620042E4EA /* libz.dylib */; };
 		8101BE52197CBC670042E4EA /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8101BE51197CBC670042E4EA /* libstdc++.6.0.9.dylib */; };
 		8101BE54197CBC740042E4EA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8101BE53197CBC740042E4EA /* Foundation.framework */; };
-		8101BE56197CBC860042E4EA /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8101BE55197CBC860042E4EA /* AMap.bundle */; };
 		8101BE58197CEFD00042E4EA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8101BE57197CEFD00042E4EA /* MainViewController.swift */; };
 		8101BE5A197CF0060042E4EA /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8101BE59197CF0060042E4EA /* RecordViewController.swift */; };
 		8101BE5C197CF0AD0042E4EA /* DisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8101BE5B197CF0AD0042E4EA /* DisplayViewController.swift */; };
@@ -34,6 +33,7 @@
 		8101BE6E197D0AEA0042E4EA /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8101BE6D197D0AEA0042E4EA /* Route.swift */; };
 		815FB8691980F564001E52C0 /* aeroplane@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 815FB8681980F564001E52C0 /* aeroplane@2x.png */; };
 		816265DF197E6752004ABDCC /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816265DE197E6752004ABDCC /* FileHelper.swift */; };
+		81D4497F1A4D15960054B554 /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 81D4497E1A4D15960054B554 /* AMap.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +64,6 @@
 		8101BE4F197CBC620042E4EA /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		8101BE51197CBC670042E4EA /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
 		8101BE53197CBC740042E4EA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		8101BE55197CBC860042E4EA /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AMap.bundle; path = MyRoute/Extern/MAMapKit.framework/Versions/2.2.1.1647/Resources/AMap.bundle; sourceTree = "<group>"; };
 		8101BE57197CEFD00042E4EA /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8101BE59197CF0060042E4EA /* RecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		8101BE5B197CF0AD0042E4EA /* DisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +77,7 @@
 		8101BE6D197D0AEA0042E4EA /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		815FB8681980F564001E52C0 /* aeroplane@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aeroplane@2x.png"; sourceTree = "<group>"; };
 		816265DE197E6752004ABDCC /* FileHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
+		81D4497E1A4D15960054B554 /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AMap.bundle; path = MyRoute/Extern/MAMapKit.framework/Versions/2.4.2.19ad4bb/Resources/AMap.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +109,7 @@
 		8101BE1A197CBBFC0042E4EA = {
 			isa = PBXGroup;
 			children = (
-				8101BE55197CBC860042E4EA /* AMap.bundle */,
+				81D4497E1A4D15960054B554 /* AMap.bundle */,
 				8101BE53197CBC740042E4EA /* Foundation.framework */,
 				8101BE51197CBC670042E4EA /* libstdc++.6.0.9.dylib */,
 				8101BE4F197CBC620042E4EA /* libz.dylib */,
@@ -251,7 +251,7 @@
 		8101BE1B197CBBFC0042E4EA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = AutoNavi;
 				TargetAttributes = {
 					8101BE22197CBBFC0042E4EA = {
@@ -292,10 +292,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81D4497F1A4D15960054B554 /* AMap.bundle in Resources */,
 				8101BE64197CF36B0042E4EA /* location_yes@2x.png in Resources */,
 				815FB8691980F564001E52C0 /* aeroplane@2x.png in Resources */,
 				8101BE65197CF36B0042E4EA /* location_no@2x.png in Resources */,
-				8101BE56197CBC860042E4EA /* AMap.bundle in Resources */,
 				8101BE2E197CBBFC0042E4EA /* Main.storyboard in Resources */,
 				8101BE6A197CF8D30042E4EA /* icon_list@2x.png in Resources */,
 				8101BE6B197CF8D30042E4EA /* icon_stop@2x.png in Resources */,
@@ -442,7 +442,6 @@
 		8101BE40197CBBFC0042E4EA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -461,7 +460,6 @@
 		8101BE41197CBBFC0042E4EA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (

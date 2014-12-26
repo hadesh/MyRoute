@@ -38,7 +38,7 @@ class ViewController: UIViewController, MAMapViewDelegate, AMapSearchDelegate, U
         
         mapView = MAMapView(frame: self.view.bounds)
         mapView!.delegate = self
-        self.view.addSubview(mapView)
+        self.view.addSubview(mapView!)
         
         mapView!.showsUserLocation = true
         mapView!.userTrackingMode = MAUserTrackingMode.Follow
@@ -57,7 +57,7 @@ class ViewController: UIViewController, MAMapViewDelegate, AMapSearchDelegate, U
         prompts.textAlignment = NSTextAlignment.Center
         prompts.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6)
         prompts.textColor = UIColor.whiteColor()
-        prompts.font = UIFont(name: nil, size: 20)
+        prompts.font = UIFont.systemFontOfSize(14)
         
         prompts.autoresizingMask = UIViewAutoresizing.FlexibleTopMargin | UIViewAutoresizing.FlexibleWidth
         
@@ -153,8 +153,8 @@ class ViewController: UIViewController, MAMapViewDelegate, AMapSearchDelegate, U
         println("request :\(request)")
         println("response :\(response)")
         
-        if response.regeocode {
-            let coordinate = CLLocationCoordinate2DMake(request.location.latitude.bridgeToObjectiveC().doubleValue, request.location.longitude.bridgeToObjectiveC().doubleValue)
+        if (response.regeocode != nil) {
+            let coordinate = CLLocationCoordinate2DMake(Double(request.location.latitude), Double(request.location.longitude))
             
             var annotation = MAPointAnnotation()
             annotation.coordinate = coordinate
