@@ -1,35 +1,36 @@
 //
-//  ViewController.swift
-//  HelloAmap-Swift
+//  SearchViewController.swift
+//  MyRoute
 //
-//  Created by xiaoming han on 14-7-7.
-//  Copyright (c) 2014 AutoNavi. All rights reserved.
+//  Created by xiaoming han on 15/1/6.
+//  Copyright (c) 2015年 AutoNavi. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController, MAMapViewDelegate, AMapSearchDelegate, UIGestureRecognizerDelegate {
-    
+class SearchViewController: UIViewController, MAMapViewDelegate, AMapSearchDelegate, UIGestureRecognizerDelegate {
+
     var mapView: MAMapView?
     var search: AMapSearchAPI?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        // Do any additional setup after loading the view.
+        self.title = "Search Demo"
         
         initMapView()
         initSearch()
         initToolBar()
         initGestureRecognizer()
-        
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    /// Helpers
+    //MARK:- Helpers
     
     func initMapView() {
         
@@ -77,7 +78,7 @@ class ViewController: UIViewController, MAMapViewDelegate, AMapSearchDelegate, U
         self.search!.AMapReGoecodeSearch(regeo)
     }
     
-    /// Handle Gesture
+    //MARK:- Handle Gesture
     
     //    - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
     
@@ -90,11 +91,10 @@ class ViewController: UIViewController, MAMapViewDelegate, AMapSearchDelegate, U
             let coordinate = mapView!.convertPoint(gesture.locationInView(self.view), toCoordinateFromView: mapView)
             
             searchReGeocodeWithCoordinate(coordinate)
-            
         }
     }
     
-    /// MAMapViewDelegate
+    //MARK:- MAMapViewDelegate
     
     //- (void)mapView:(MAMapView *)mapView didUpdateUserLocation:(MAUserLocation *)userLocation
     func mapView(mapView: MAMapView , didUpdateUserLocation userLocation: MAUserLocation ) {
@@ -135,13 +135,15 @@ class ViewController: UIViewController, MAMapViewDelegate, AMapSearchDelegate, U
         return nil
     }
     
+    func mapView(mapView: MAMapView!, didAddAnnotationViews views: [AnyObject]!) {
+        let annotationView: MAAnnotationView! = views[0] as MAAnnotationView
+        mapView.selectAnnotation(annotationView.annotation, animated: true)
+    }
     
-    /// AMapSearchDelegate
+    //MARK:- AMapSearchDelegate
     
-    // - (void)search:(id)searchRequest error:(NSString*)errInfo;
-    func search(searchRequest: AnyObject, error errInfo: String) {
-        println("request :\(searchRequest), error: \(errInfo)")
-        
+    func searchRequest(request: AnyObject!, didFailWithError error: NSError!) {
+        println("request :\(request), error: \(error)")
     }
     
     //    - (void)onReGeocodeSearchDone:(AMapReGeocodeSearchRequest *)request response:(AMapReGeocodeSearchResponse *)response
@@ -163,6 +165,5 @@ class ViewController: UIViewController, MAMapViewDelegate, AMapSearchDelegate, U
             mapView!.addOverlay(overlay)
         }
     }
-    
-}
 
+}

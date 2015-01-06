@@ -76,7 +76,7 @@ class DisplayViewController: UIViewController, MAMapViewDelegate {
         averageSpeed = route!.totalDistance() / route!.totalDuration()
     }
     
-    /// Helpers
+    //MARK:- Helpers
     
     func actionPlayAndStop() {
         println("actionPlayAndStop")
@@ -173,7 +173,7 @@ class DisplayViewController: UIViewController, MAMapViewDelegate {
         }
     }
     
-    /// MAMapViewDelegate
+    //MARK:- MAMapViewDelegate
     
     func mapView(mapView: MAMapView, viewForAnnotation annotation: MAAnnotation) -> MAAnnotationView? {
         

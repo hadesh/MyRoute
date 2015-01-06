@@ -13,6 +13,7 @@ class MainViewController: UIViewController, MAMapViewDelegate {
     var mapView: MAMapView?
     var isRecording: Bool = false
     var locationButton: UIButton?
+    var searchButton: UIButton?
     var imageLocated: UIImage?
     var imageNotLocate: UIImage?
     var currentRoute: Route?
@@ -39,7 +40,7 @@ class MainViewController: UIViewController, MAMapViewDelegate {
         tipView!.frame = CGRectMake(0, CGRectGetHeight(view.bounds) - 30, CGRectGetWidth(view.bounds), 30)
     }
 
-    /// Initialization
+    //MARK:- Initialization
     
     func initMapView() {
         
@@ -81,6 +82,17 @@ class MainViewController: UIViewController, MAMapViewDelegate {
         locationButton!.setImage(imageNotLocate, forState: UIControlState.Normal)
         
         view.addSubview(locationButton!)
+        
+        //
+        searchButton = UIButton(frame: CGRectMake(CGRectGetWidth(view.bounds) - 100, CGRectGetHeight(view.bounds) - 80, 80, 40))
+        searchButton!.autoresizingMask = UIViewAutoresizing.FlexibleLeftMargin | UIViewAutoresizing.FlexibleTopMargin
+        searchButton!.backgroundColor = UIColor.whiteColor()
+        searchButton!.layer.cornerRadius = 5
+        searchButton!.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+        searchButton!.setTitle("Search", forState: UIControlState.Normal)
+        
+        searchButton!.addTarget(self, action: "actionSearch:", forControlEvents: UIControlEvents.TouchUpInside)
+        view.addSubview(searchButton!)
     }
     
     func initTipView() {
@@ -96,7 +108,7 @@ class MainViewController: UIViewController, MAMapViewDelegate {
         
     }
     
-    /// Action
+    //MARK:- Actions
     
     func stopLocationIfNeeded() {
         if !isRecording {
@@ -154,7 +166,13 @@ class MainViewController: UIViewController, MAMapViewDelegate {
         }
     }
     
-    /// Helpers
+    func actionSearch(sender: UIButton) {
+        
+        let searchDemoController = SearchViewController(nibName: nil, bundle: nil)
+        navigationController!.pushViewController(searchDemoController, animated: true)
+    }
+    
+    //MARK:- Helpers
     
     func addLocation(location: CLLocation?) {
         let success = currentRoute!.addLocation(location)
@@ -188,7 +206,7 @@ class MainViewController: UIViewController, MAMapViewDelegate {
         tipView!.hidden = true
     }
     
-    /// MAMapViewDelegate
+    //MARK:- MAMapViewDelegate
     
     func mapView(mapView: MAMapView , didUpdateUserLocation userLocation: MAUserLocation ) {
         

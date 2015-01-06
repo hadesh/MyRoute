@@ -34,6 +34,8 @@
 		815FB8691980F564001E52C0 /* aeroplane@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 815FB8681980F564001E52C0 /* aeroplane@2x.png */; };
 		816265DF197E6752004ABDCC /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816265DE197E6752004ABDCC /* FileHelper.swift */; };
 		81D4497F1A4D15960054B554 /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 81D4497E1A4D15960054B554 /* AMap.bundle */; };
+		81D4BC111A5BE58C006C6509 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81D4BC101A5BE58C006C6509 /* Launch Screen.xib */; };
+		81D4BC131A5BE7EF006C6509 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D4BC121A5BE7EF006C6509 /* SearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,8 @@
 		815FB8681980F564001E52C0 /* aeroplane@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aeroplane@2x.png"; sourceTree = "<group>"; };
 		816265DE197E6752004ABDCC /* FileHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
 		81D4497E1A4D15960054B554 /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AMap.bundle; path = MyRoute/Extern/MAMapKit.framework/Versions/2.4.2.19ad4bb/Resources/AMap.bundle; sourceTree = "<group>"; };
+		81D4BC101A5BE58C006C6509 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
+		81D4BC121A5BE7EF006C6509 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +144,7 @@
 				8101BE57197CEFD00042E4EA /* MainViewController.swift */,
 				8101BE59197CF0060042E4EA /* RecordViewController.swift */,
 				8101BE5B197CF0AD0042E4EA /* DisplayViewController.swift */,
+				81D4BC121A5BE7EF006C6509 /* SearchViewController.swift */,
 				8101BE6F197D1E900042E4EA /* Model */,
 				8101BE5F197CF1040042E4EA /* Views */,
 				8101BE2A197CBBFC0042E4EA /* ViewController.swift */,
@@ -194,6 +199,7 @@
 				8101BE69197CF8D30042E4EA /* icon_play@2x.png */,
 				8101BE62197CF36B0042E4EA /* location_yes@2x.png */,
 				8101BE63197CF36B0042E4EA /* location_no@2x.png */,
+				81D4BC101A5BE58C006C6509 /* Launch Screen.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -301,6 +307,7 @@
 				8101BE6B197CF8D30042E4EA /* icon_stop@2x.png in Resources */,
 				8101BE6C197CF8D30042E4EA /* icon_play@2x.png in Resources */,
 				8101BE30197CBBFC0042E4EA /* Images.xcassets in Resources */,
+				81D4BC111A5BE58C006C6509 /* Launch Screen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +325,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81D4BC131A5BE7EF006C6509 /* SearchViewController.swift in Sources */,
 				8101BE5C197CF0AD0042E4EA /* DisplayViewController.swift in Sources */,
 				8101BE58197CEFD00042E4EA /* MainViewController.swift in Sources */,
 				8101BE5E197CF0F80042E4EA /* StatusView.swift in Sources */,

@@ -8,10 +8,10 @@
 
 import UIKit
 
+let APIKey = "49a2366789105cfc0ef47f2500e7ca7d"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
-    let apiKey = #key#
     
     var window: UIWindow?
     var viewController: MainViewController?
@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
         // Override point for customization after application launch.
         
-        MAMapServices.sharedServices().apiKey = apiKey
+        MAMapServices.sharedServices().apiKey = APIKey
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds);
         

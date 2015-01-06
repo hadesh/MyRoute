@@ -40,7 +40,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
         view.addSubview(tableView!)
     }
     
-    /// Helpers
+    //MARK:- Helpers
     
     func deleteRoute(index: Int) {
         
@@ -53,7 +53,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
         }
     }
         
-    /// UITableViewDataSource
+    //MARK:- UITableViewDataSource
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return routes.count
@@ -97,7 +97,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
         
     }
     
-    /// UITableViewDelegate
+    //MARK:- UITableViewDelegate
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         
