@@ -29,7 +29,7 @@ class FileHelper: NSObject {
             pathSuccess = NSFileManager.defaultManager().createDirectoryAtPath(document!, withIntermediateDirectories: true, attributes: nil, error: nil)
         }
         
-        return pathSuccess ? document? : nil
+        return pathSuccess ? document : nil
     }
     
     class func recordFileList() -> [AnyObject]? {
@@ -69,7 +69,7 @@ class FileHelper: NSObject {
             
             var routeList: [Route] = []
             
-            for file in list as [String] {
+            for file in list as![String] {
                 
                 println("file: \(file)")
                 

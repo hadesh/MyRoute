@@ -156,16 +156,16 @@ class DisplayViewController: UIViewController, MAMapViewDelegate {
        
         let duration: NSTimeInterval = distance / (averageSpeed * 100)
 
-        UIView.animateWithDuration(duration, animations: {
-            self.myLocation!.setCoordinate(nextCoord)
-            }, completion: {
-                (value: Bool) in
+        UIView.animateWithDuration(duration, animations: { () -> Void in
+            self.myLocation!.coordinate = nextCoord
+            return
+            }, completion: { (stop: Bool) -> Void in
                 self.currentLocationIndex++
-                
-                if value {
-                   self.animateToNextCoordinate()
+                if stop {
+                    self.animateToNextCoordinate()
                 }
-            })
+                return
+        })
         
         var view: MAAnnotationView? = mapView!.viewForAnnotation(myLocation)
         if view != nil {

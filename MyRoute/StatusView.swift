@@ -21,7 +21,7 @@ class StatusView: UIView {
         
         isOpen = true
         textView = UITextView(frame: CGRectMake(0, controlHeight, CGRectGetWidth(frame), CGRectGetHeight(frame)))
-        control = UIButton.buttonWithType(UIButtonType.Custom) as UIButton
+        control = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
         originalFrame = frame
         
         super.init(frame: frame)

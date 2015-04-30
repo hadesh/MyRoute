@@ -35,9 +35,9 @@ class Route: NSObject, NSCoding {
         aCoder.encodeObject(locations, forKey: "locations")
     }
     required init(coder aDecoder: NSCoder) {
-        startTime = aDecoder.decodeObjectForKey("startTime") as NSDate
-        endTime = aDecoder.decodeObjectForKey("endTime") as NSDate
-        locations = aDecoder.decodeObjectForKey("locations") as NSMutableArray
+        startTime = aDecoder.decodeObjectForKey("startTime") as! NSDate
+        endTime = aDecoder.decodeObjectForKey("endTime") as! NSDate
+        locations = aDecoder.decodeObjectForKey("locations") as! NSMutableArray
     }
     
     /// Interface
@@ -75,7 +75,7 @@ class Route: NSObject, NSCoding {
     }
     
     func detail() -> String! {
-        return NSString(format: "p: %d, d: %.2fm, t: %@", locations.count, totalDistance(), formattedDuration(totalDuration()))
+        return NSString(format: "p: %d, d: %.2fm, t: %@", locations.count, totalDistance(), formattedDuration(totalDuration())) as String
     }
     
     func startLocation() -> CLLocation? {
@@ -105,7 +105,7 @@ class Route: NSObject, NSCoding {
             
             for location: AnyObject in locations {
                 
-                let loc = location as CLLocation
+                let loc = location as! CLLocation
 
                 distance += loc.distanceFromLocation(currentLocation)
                 currentLocation = loc
@@ -131,7 +131,7 @@ class Route: NSObject, NSCoding {
             t /= 60.0
         }
         
-        return NSString(format: "%.0fh %.0fm %.0fs", component[2], component[1], component[0])
+        return NSString(format: "%.0fh %.0fm %.0fs", component[2], component[1], component[0]) as String
     }
     
     func coordinates() -> [CLLocationCoordinate2D]! {
@@ -141,7 +141,7 @@ class Route: NSObject, NSCoding {
             
             for location: AnyObject in locations {
                 
-                let loc = location as CLLocation
+                let loc = location as! CLLocation
                 
                 coordinates.append(loc.coordinate)
             }

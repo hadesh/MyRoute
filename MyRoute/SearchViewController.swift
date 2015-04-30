@@ -111,7 +111,7 @@ class SearchViewController: UIViewController, MAMapViewDelegate, AMapSearchDeleg
             if poiAnnotationView == nil {
                 poiAnnotationView = MAPinAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
             }
-            
+            poiAnnotationView!.pinColor = UInt(MAPinAnnotationColorGreen)
             poiAnnotationView!.animatesDrop   = true
             poiAnnotationView!.canShowCallout = true
             
@@ -136,7 +136,7 @@ class SearchViewController: UIViewController, MAMapViewDelegate, AMapSearchDeleg
     }
     
     func mapView(mapView: MAMapView!, didAddAnnotationViews views: [AnyObject]!) {
-        let annotationView: MAAnnotationView! = views[0] as MAAnnotationView
+        let annotationView: MAAnnotationView! = views[0] as! MAAnnotationView
         mapView.selectAnnotation(annotationView.annotation, animated: true)
     }
     
