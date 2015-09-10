@@ -48,7 +48,7 @@ class ViewController: UIViewController, MAMapViewDelegate, AMapSearchDelegate, U
     }
     
     func initToolBar() {
-        var prompts: UILabel = UILabel()
+        let prompts: UILabel = UILabel()
         prompts.frame = CGRectMake(0, self.view.bounds.height - 44, self.view.bounds.width, 44)
         prompts.text = "Long press to add Annotation"
         prompts.textAlignment = NSTextAlignment.Center
@@ -56,14 +56,14 @@ class ViewController: UIViewController, MAMapViewDelegate, AMapSearchDelegate, U
         prompts.textColor = UIColor.whiteColor()
         prompts.font = UIFont.systemFontOfSize(14)
         
-        prompts.autoresizingMask = UIViewAutoresizing.FlexibleTopMargin | UIViewAutoresizing.FlexibleWidth
+        prompts.autoresizingMask = [UIViewAutoresizing.FlexibleTopMargin, UIViewAutoresizing.FlexibleWidth]
         
         self.view.addSubview(prompts)
     }
     
     func initGestureRecognizer() {
         
-        var longPress: UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: "handleLongPress:")
+        let longPress: UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: "handleLongPress:")
         longPress.delegate = self
         self.view.addGestureRecognizer(longPress)
     }
@@ -72,7 +72,7 @@ class ViewController: UIViewController, MAMapViewDelegate, AMapSearchDelegate, U
         let regeo: AMapReGeocodeSearchRequest = AMapReGeocodeSearchRequest()
         
         regeo.location = AMapGeoPoint.locationWithLatitude(CGFloat(coordinate.latitude), longitude: CGFloat(coordinate.longitude))
-        println("regeo :\(regeo)")
+        print("regeo :\(regeo)")
         
         self.search!.AMapReGoecodeSearch(regeo)
     }
@@ -98,7 +98,7 @@ class ViewController: UIViewController, MAMapViewDelegate, AMapSearchDelegate, U
     
     //- (void)mapView:(MAMapView *)mapView didUpdateUserLocation:(MAUserLocation *)userLocation
     func mapView(mapView: MAMapView , didUpdateUserLocation userLocation: MAUserLocation ) {
-        println("location :\(userLocation.location)")
+        print("location :\(userLocation.location)")
     }
     
     func mapView(mapView: MAMapView, viewForAnnotation annotation: MAAnnotation) -> MAAnnotationView? {
@@ -140,26 +140,26 @@ class ViewController: UIViewController, MAMapViewDelegate, AMapSearchDelegate, U
     
     // - (void)search:(id)searchRequest error:(NSString*)errInfo;
     func search(searchRequest: AnyObject, error errInfo: String) {
-        println("request :\(searchRequest), error: \(errInfo)")
+        print("request :\(searchRequest), error: \(errInfo)")
         
     }
     
     //    - (void)onReGeocodeSearchDone:(AMapReGeocodeSearchRequest *)request response:(AMapReGeocodeSearchResponse *)response
     func onReGeocodeSearchDone(request: AMapReGeocodeSearchRequest, response: AMapReGeocodeSearchResponse) {
         
-        println("request :\(request)")
-        println("response :\(response)")
+        print("request :\(request)")
+        print("response :\(response)")
         
         if (response.regeocode != nil) {
             let coordinate = CLLocationCoordinate2DMake(Double(request.location.latitude), Double(request.location.longitude))
             
-            var annotation = MAPointAnnotation()
+            let annotation = MAPointAnnotation()
             annotation.coordinate = coordinate
             annotation.title = response.regeocode.formattedAddress
             annotation.subtitle = response.regeocode.addressComponent.province
             mapView!.addAnnotation(annotation)
             
-            var overlay = MACircle(centerCoordinate: coordinate, radius: 50.0)
+            let overlay = MACircle(centerCoordinate: coordinate, radius: 50.0)
             mapView!.addOverlay(overlay)
         }
     }

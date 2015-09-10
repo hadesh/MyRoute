@@ -70,7 +70,7 @@ class MainViewController: UIViewController, MAMapViewDelegate {
         imageNotLocate = UIImage(named: "location_no.png")
         
         locationButton = UIButton(frame: CGRectMake(20, CGRectGetHeight(view.bounds) - 80, 40, 40))
-        locationButton!.autoresizingMask = UIViewAutoresizing.FlexibleRightMargin | UIViewAutoresizing.FlexibleTopMargin
+        locationButton!.autoresizingMask = [UIViewAutoresizing.FlexibleRightMargin, UIViewAutoresizing.FlexibleTopMargin]
         locationButton!.backgroundColor = UIColor.whiteColor()
         locationButton!.layer.cornerRadius = 5
         locationButton!.layer.shadowColor = UIColor.blackColor().CGColor
@@ -85,7 +85,7 @@ class MainViewController: UIViewController, MAMapViewDelegate {
         
         //
         searchButton = UIButton(frame: CGRectMake(CGRectGetWidth(view.bounds) - 100, CGRectGetHeight(view.bounds) - 80, 80, 40))
-        searchButton!.autoresizingMask = UIViewAutoresizing.FlexibleLeftMargin | UIViewAutoresizing.FlexibleTopMargin
+        searchButton!.autoresizingMask = [UIViewAutoresizing.FlexibleLeftMargin, UIViewAutoresizing.FlexibleTopMargin]
         searchButton!.backgroundColor = UIColor.whiteColor()
         searchButton!.layer.cornerRadius = 5
         searchButton!.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
@@ -112,14 +112,14 @@ class MainViewController: UIViewController, MAMapViewDelegate {
     
     func stopLocationIfNeeded() {
         if !isRecording {
-            println("stop location")
+            print("stop location")
             mapView!.setUserTrackingMode(MAUserTrackingMode.None, animated: false)
             mapView!.showsUserLocation = false
         }
     }
     
     func actionHistory() {
-        println("actionHistory")
+        print("actionHistory")
         
         let historyController = RecordViewController(nibName: nil, bundle: nil)
         historyController.title = "Records"
@@ -128,7 +128,7 @@ class MainViewController: UIViewController, MAMapViewDelegate {
     }
     
     func actionRecordAndStop() {
-        println("actionRecord")
+        print("actionRecord")
         
         isRecording = !isRecording
         
@@ -154,7 +154,7 @@ class MainViewController: UIViewController, MAMapViewDelegate {
     }
     
     func actionLocation(sender: UIButton) {
-        println("actionLocation")
+        print("actionLocation")
         
         if mapView!.userTrackingMode == MAUserTrackingMode.Follow {
             

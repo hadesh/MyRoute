@@ -34,7 +34,7 @@ class Route: NSObject, NSCoding {
         aCoder.encodeObject(endTime, forKey: "endTime")
         aCoder.encodeObject(locations, forKey: "locations")
     }
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         startTime = aDecoder.decodeObjectForKey("startTime") as! NSDate
         endTime = aDecoder.decodeObjectForKey("endTime") as! NSDate
         locations = aDecoder.decodeObjectForKey("locations") as! NSMutableArray
@@ -48,11 +48,11 @@ class Route: NSObject, NSCoding {
             return false
         }
         
-        var lastLocation: CLLocation? = locations.lastObject as? CLLocation
+        let lastLocation: CLLocation? = locations.lastObject as? CLLocation
         
         if lastLocation != nil {
             
-            let distance: CLLocationDistance = lastLocation!.distanceFromLocation(location)
+            let distance: CLLocationDistance = lastLocation!.distanceFromLocation(location!)
             
             if distance < distanceFilter {
                 return false
@@ -107,7 +107,7 @@ class Route: NSObject, NSCoding {
                 
                 let loc = location as! CLLocation
 
-                distance += loc.distanceFromLocation(currentLocation)
+                distance += loc.distanceFromLocation(currentLocation!)
                 currentLocation = loc
             }
             

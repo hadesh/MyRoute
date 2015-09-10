@@ -18,7 +18,8 @@ class FileHelper: NSObject {
         
         var document: String? = allpaths[0] as? String
         
-        document = document?.stringByAppendingPathComponent(RecordDirectoryName)
+//        document = document?.stringByAppendingPathComponent(RecordDirectoryName)
+        document?.extend("/"+RecordDirectoryName)
         
         var isDir: ObjCBool = false
         
@@ -26,7 +27,12 @@ class FileHelper: NSObject {
         
         if (!pathSuccess || !isDir) {
             
-            pathSuccess = NSFileManager.defaultManager().createDirectoryAtPath(document!, withIntermediateDirectories: true, attributes: nil, error: nil)
+            do {
+                try NSFileManager.defaultManager().createDirectoryAtPath(document!, withIntermediateDirectories: true, attributes: nil)
+                pathSuccess = true
+            } catch _ {
+                pathSuccess = false
+            }
         }
         
         return pathSuccess ? document : nil
@@ -34,15 +40,21 @@ class FileHelper: NSObject {
     
     class func recordFileList() -> [AnyObject]? {
         
-        var document: String? = baseDirForRecords()
+        let document: String? = baseDirForRecords()
         
         if document != nil {
             
             var error: NSError?
             
-            var result = NSFileManager.defaultManager().contentsOfDirectoryAtPath(document!, error: &error)
+            var result: [AnyObject]?
+            do {
+                result = try NSFileManager.defaultManager().contentsOfDirectoryAtPath(document!)
+            } catch let error1 as NSError {
+                error = error1
+                result = nil
+            }
             if error != nil {
-                println("error: \(error)")
+                print("error: \(error)")
             }
             else {
                 return result
@@ -54,16 +66,15 @@ class FileHelper: NSObject {
     
     class func recordPathWithName(name: String!) -> String? {
         
-        var document: String? = baseDirForRecords()
-        
-        var path: String? = document?.stringByAppendingPathComponent(name)
-        
+        let document: String? = baseDirForRecords()
+//        let path: String? = document?.stringByAppendingPathComponent(name)
+        let path:String? = document! + "/" + name
         return path
     }
     
     class func routesArray() -> [Route]! {
         
-        var list: [AnyObject]? = recordFileList()
+        let list: [AnyObject]? = recordFileList()
         
         if (list != nil) {
             
@@ -71,10 +82,10 @@ class FileHelper: NSObject {
             
             for file in list as![String] {
                 
-                println("file: \(file)")
+                print("file: \(file)")
                 
                 let path = recordPathWithName(file)
-                var route = NSKeyedUnarchiver.unarchiveObjectWithFile(path!) as? Route
+                let route = NSKeyedUnarchiver.unarchiveObjectWithFile(path!) as? Route
                 
                 if route != nil {
                     routeList.append(route!)
@@ -91,9 +102,16 @@ class FileHelper: NSObject {
         let path = recordPathWithName(file)
         
         var error: NSError?
-        var success = NSFileManager.defaultManager().removeItemAtPath(path!, error: &error)
+        var success: Bool
+        do {
+            try NSFileManager.defaultManager().removeItemAtPath(path!)
+            success = true
+        } catch let error1 as NSError {
+            error = error1
+            success = false
+        }
         if error != nil {
-            println("error: \(error)")
+            print("error: \(error)")
         }
         return success
     }

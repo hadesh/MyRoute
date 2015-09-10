@@ -47,7 +47,7 @@ class DisplayViewController: UIViewController, MAMapViewDelegate {
     func showRoute() {
         
         if route == nil || route!.locations.count == 0 {
-            println("Invalid route")
+            print("Invalid route", appendNewline: false)
             return
         }
         
@@ -79,7 +79,7 @@ class DisplayViewController: UIViewController, MAMapViewDelegate {
     //MARK:- Helpers
     
     func actionPlayAndStop() {
-        println("actionPlayAndStop")
+        print("actionPlayAndStop", appendNewline: false)
         
         if route == nil {
             return
@@ -103,7 +103,7 @@ class DisplayViewController: UIViewController, MAMapViewDelegate {
         else {
             navigationItem.rightBarButtonItem!.image = UIImage(named: "icon_play.png")
             
-            var view: MAAnnotationView? = mapView!.viewForAnnotation(myLocation)
+            let view: MAAnnotationView? = mapView!.viewForAnnotation(myLocation)
             if view != nil {
                 view!.layer.removeAllAnimations()
             }
@@ -167,7 +167,7 @@ class DisplayViewController: UIViewController, MAMapViewDelegate {
                 return
         })
         
-        var view: MAAnnotationView? = mapView!.viewForAnnotation(myLocation)
+        let view: MAAnnotationView? = mapView!.viewForAnnotation(myLocation)
         if view != nil {
             view!.transform = CGAffineTransformMakeRotation(CGFloat(heading / 180.0 * M_PI));
         }

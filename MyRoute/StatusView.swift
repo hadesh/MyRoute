@@ -21,7 +21,7 @@ class StatusView: UIView {
         
         isOpen = true
         textView = UITextView(frame: CGRectMake(0, controlHeight, CGRectGetWidth(frame), CGRectGetHeight(frame)))
-        control = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
+        control = UIButton(type: UIButtonType.Custom)
         originalFrame = frame
         
         super.init(frame: frame)
@@ -34,7 +34,7 @@ class StatusView: UIView {
         textView.font = UIFont.systemFontOfSize(12)
         textView.editable = false
         textView.selectable = false
-        textView.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
+        textView.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
         
         addSubview(textView)
         
@@ -48,7 +48,7 @@ class StatusView: UIView {
         addSubview(control)
     }
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
