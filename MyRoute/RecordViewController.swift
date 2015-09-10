@@ -19,7 +19,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -32,7 +32,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
     func initTableView() {
         
         tableView = UITableView(frame: view.bounds)
-        tableView!.autoresizingMask = UIViewAutoresizing.FlexibleHeight | UIViewAutoresizing.FlexibleWidth
+        tableView!.autoresizingMask = [UIViewAutoresizing.FlexibleHeight, UIViewAutoresizing.FlexibleWidth]
         
         tableView!.delegate = self
         tableView!.dataSource = self
@@ -46,7 +46,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
         
         if !routes.isEmpty {
             
-            var route: Route = routes[index]
+            let route: Route = routes[index]
             FileHelper.deleteFile(route.title())
             
             routes.removeAtIndex(index)
@@ -62,7 +62,8 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellIdentifier = "routeCellIdentifier"
         
-        var cell: UITableViewCell? = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? UITableViewCell
+//      var cell: UITableViewCell? = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? UITableViewCell
+        var cell: UITableViewCell? = tableView.dequeueReusableCellWithIdentifier(cellIdentifier)!
         
         if cell == nil {
             
