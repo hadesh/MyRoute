@@ -47,7 +47,7 @@ class DisplayViewController: UIViewController, MAMapViewDelegate {
     func showRoute() {
         
         if route == nil || route!.locations.count == 0 {
-            print("Invalid route", appendNewline: false)
+            print("Invalid route")
             return
         }
         
@@ -79,7 +79,7 @@ class DisplayViewController: UIViewController, MAMapViewDelegate {
     //MARK:- Helpers
     
     func actionPlayAndStop() {
-        print("actionPlayAndStop", appendNewline: false)
+        print("actionPlayAndStop")
         
         if route == nil {
             return

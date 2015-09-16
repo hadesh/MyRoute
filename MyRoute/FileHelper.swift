@@ -16,10 +16,9 @@ class FileHelper: NSObject {
         
         let allpaths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
         
-        var document: String? = allpaths[0] as? String
+        var document: String? = allpaths.first
         
-//        document = document?.stringByAppendingPathComponent(RecordDirectoryName)
-        document?.extend("/"+RecordDirectoryName)
+        document = document?.stringByAppendingString("/" + RecordDirectoryName)
         
         var isDir: ObjCBool = false
         

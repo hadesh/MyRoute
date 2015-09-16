@@ -17,8 +17,6 @@
 		8101BE4A197CBC4E0042E4EA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8101BE49197CBC4E0042E4EA /* Security.framework */; };
 		8101BE4C197CBC540042E4EA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8101BE4B197CBC540042E4EA /* SystemConfiguration.framework */; };
 		8101BE4E197CBC5B0042E4EA /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8101BE4D197CBC5B0042E4EA /* CoreTelephony.framework */; };
-		8101BE50197CBC620042E4EA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8101BE4F197CBC620042E4EA /* libz.dylib */; };
-		8101BE52197CBC670042E4EA /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8101BE51197CBC670042E4EA /* libstdc++.6.0.9.dylib */; };
 		8101BE54197CBC740042E4EA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8101BE53197CBC740042E4EA /* Foundation.framework */; };
 		8101BE58197CEFD00042E4EA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8101BE57197CEFD00042E4EA /* MainViewController.swift */; };
 		8101BE5A197CF0060042E4EA /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8101BE59197CF0060042E4EA /* RecordViewController.swift */; };
@@ -36,6 +34,8 @@
 		81D4497F1A4D15960054B554 /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 81D4497E1A4D15960054B554 /* AMap.bundle */; };
 		81D4BC111A5BE58C006C6509 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81D4BC101A5BE58C006C6509 /* Launch Screen.xib */; };
 		81D4BC131A5BE7EF006C6509 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D4BC121A5BE7EF006C6509 /* SearchViewController.swift */; };
+		81EA8B561BA96B630075AC2F /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 81EA8B551BA96B630075AC2F /* libstdc++.6.0.9.tbd */; };
+		81EA8B581BA96B680075AC2F /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 81EA8B571BA96B680075AC2F /* libz.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,8 +63,6 @@
 		8101BE49197CBC4E0042E4EA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		8101BE4B197CBC540042E4EA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8101BE4D197CBC5B0042E4EA /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
-		8101BE4F197CBC620042E4EA /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		8101BE51197CBC670042E4EA /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
 		8101BE53197CBC740042E4EA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8101BE57197CEFD00042E4EA /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8101BE59197CF0060042E4EA /* RecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +80,8 @@
 		81D4497E1A4D15960054B554 /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AMap.bundle; path = MyRoute/Extern/MAMapKit.framework/Versions/2.4.2.19ad4bb/Resources/AMap.bundle; sourceTree = "<group>"; };
 		81D4BC101A5BE58C006C6509 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		81D4BC121A5BE7EF006C6509 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		81EA8B551BA96B630075AC2F /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		81EA8B571BA96B680075AC2F /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,9 +89,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81EA8B581BA96B680075AC2F /* libz.tbd in Frameworks */,
+				81EA8B561BA96B630075AC2F /* libstdc++.6.0.9.tbd in Frameworks */,
 				8101BE54197CBC740042E4EA /* Foundation.framework in Frameworks */,
-				8101BE52197CBC670042E4EA /* libstdc++.6.0.9.dylib in Frameworks */,
-				8101BE50197CBC620042E4EA /* libz.dylib in Frameworks */,
 				8101BE4E197CBC5B0042E4EA /* CoreTelephony.framework in Frameworks */,
 				8101BE4C197CBC540042E4EA /* SystemConfiguration.framework in Frameworks */,
 				8101BE4A197CBC4E0042E4EA /* Security.framework in Frameworks */,
@@ -113,10 +113,10 @@
 		8101BE1A197CBBFC0042E4EA = {
 			isa = PBXGroup;
 			children = (
+				81EA8B571BA96B680075AC2F /* libz.tbd */,
+				81EA8B551BA96B630075AC2F /* libstdc++.6.0.9.tbd */,
 				81D4497E1A4D15960054B554 /* AMap.bundle */,
 				8101BE53197CBC740042E4EA /* Foundation.framework */,
-				8101BE51197CBC670042E4EA /* libstdc++.6.0.9.dylib */,
-				8101BE4F197CBC620042E4EA /* libz.dylib */,
 				8101BE4D197CBC5B0042E4EA /* CoreTelephony.framework */,
 				8101BE4B197CBC540042E4EA /* SystemConfiguration.framework */,
 				8101BE49197CBC4E0042E4EA /* Security.framework */,
@@ -259,7 +259,7 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = AutoNavi;
 				TargetAttributes = {
 					8101BE22197CBBFC0042E4EA = {
@@ -390,6 +390,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -462,6 +463,7 @@
 				INFOPLIST_FILE = MyRoute/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.autonavi.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MyRoute-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -481,6 +483,7 @@
 				INFOPLIST_FILE = MyRoute/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.autonavi.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MyRoute-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -502,6 +505,7 @@
 				INFOPLIST_FILE = MyRouteTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.autonavi.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
@@ -518,6 +522,7 @@
 				INFOPLIST_FILE = MyRouteTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.autonavi.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
