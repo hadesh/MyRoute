@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         MAMapServices.sharedServices().apiKey = APIKey
+        AMapSearchServices.sharedServices().apiKey = APIKey
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds);
         

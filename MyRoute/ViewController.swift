@@ -44,7 +44,8 @@ class ViewController: UIViewController, MAMapViewDelegate, AMapSearchDelegate, U
     }
     
     func initSearch() {
-        search = AMapSearchAPI(searchKey: APIKey, delegate: self)
+        search = AMapSearchAPI()
+        search?.delegate = self
     }
     
     func initToolBar() {

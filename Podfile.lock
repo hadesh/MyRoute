@@ -1,0 +1,13 @@
+PODS:
+  - AMap2DMap (3.1.0)
+  - AMapSearch (3.0.0)
+
+DEPENDENCIES:
+  - AMap2DMap
+  - AMapSearch
+
+SPEC CHECKSUMS:
+  AMap2DMap: a6741139dd16d237713c4fd6cae9a0399ca1fe25
+  AMapSearch: fd1ed96353f8a0f5c2e2463dac6a145bb3e6970f
+
+COCOAPODS: 0.38.2

@@ -6,5 +6,5 @@
 //  Copyright (c) 2014 AutoNavi. All rights reserved.
 //
 
-#import <AMapSearchKit/AMapSearchAPI.h>
+#import <AMapSearchKit/AMapSearchKit.h>
 #import <MAMapKit/MAMapKit.h>

@@ -10,14 +10,21 @@ import UIKit
 
 class TipView: UIView {
 
-    var label: UILabel
+    var label: UILabel!
     
     override init(frame: CGRect) {
-        
-        label = UILabel(frame: CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame)))
         super.init(frame: frame)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+    }
+    
+    func commonInit() {
         
         self.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6)
+        label = UILabel(frame: CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame)))
         
         label.textColor = UIColor.whiteColor()
         label.font = UIFont.systemFontOfSize(20)
@@ -25,10 +32,6 @@ class TipView: UIView {
         label.autoresizingMask = UIViewAutoresizing.FlexibleWidth
         
         self.addSubview(label)
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     func showTip(tip: String?) {

@@ -220,8 +220,14 @@ class MainViewController: UIViewController, MAMapViewDelegate {
         
         let location: CLLocation = userLocation.location
         
-        let infoArray: [(String, String)] = [("coordinate", NSString(format: "<%.4f, %.4f>", location.coordinate.latitude, location.coordinate.longitude) as String),
-            ("speed", NSString(format: "%.2fm/s(%.2fkm/h)", location.speed, location.speed * 3.6) as String),
+        var speed = location.speed
+        if speed < 0.0 {
+            speed = 0.0
+        }
+        
+        let infoArray: [(String, String)] = [
+            ("coordinate", NSString(format: "<%.4f, %.4f>", location.coordinate.latitude, location.coordinate.longitude) as String),
+            ("speed", NSString(format: "%.2fm/s(%.2fkm/h)", speed, speed * 3.6) as String),
             ("accuracy", "\(location.horizontalAccuracy)m"),
             ("altitude", NSString(format: "%.2fm", location.altitude) as String)]
         

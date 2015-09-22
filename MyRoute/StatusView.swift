@@ -12,23 +12,31 @@ class StatusView: UIView {
 
     let controlHeight: CGFloat = 20.0
     
-    private var textView: UITextView
-    private var control: UIButton
-    private var originalFrame: CGRect
-    private var isOpen: Bool
+    private var textView: UITextView!
+    private var control: UIButton!
+    private var originalFrame: CGRect = CGRectZero
+    private var isOpen: Bool = false
     
     override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+    }
+    
+    func commonInit() {
+        
+        self.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.4)
         
         isOpen = true
         textView = UITextView(frame: CGRectMake(0, controlHeight, CGRectGetWidth(frame), CGRectGetHeight(frame)))
         control = UIButton(type: UIButtonType.Custom)
         originalFrame = frame
         
-        super.init(frame: frame)
-        
-        self.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.4)
-        
-                ///
+        ///
         textView.backgroundColor = UIColor.clearColor()
         textView.textColor = UIColor.whiteColor()
         textView.font = UIFont.systemFontOfSize(12)
@@ -46,10 +54,6 @@ class StatusView: UIView {
         control.addTarget(self, action: "actionSwitch", forControlEvents: UIControlEvents.TouchUpInside)
         
         addSubview(control)
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     func actionSwitch() {

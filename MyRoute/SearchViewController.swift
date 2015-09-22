@@ -45,7 +45,9 @@ class SearchViewController: UIViewController, MAMapViewDelegate, AMapSearchDeleg
     }
     
     func initSearch() {
-        search = AMapSearchAPI(searchKey: APIKey, delegate: self)
+//        AMap
+        search = AMapSearchAPI()
+        search?.delegate = self
     }
     
     func initToolBar() {
@@ -96,7 +98,6 @@ class SearchViewController: UIViewController, MAMapViewDelegate, AMapSearchDeleg
     
     //MARK:- MAMapViewDelegate
     
-    //- (void)mapView:(MAMapView *)mapView didUpdateUserLocation:(MAUserLocation *)userLocation
     func mapView(mapView: MAMapView , didUpdateUserLocation userLocation: MAUserLocation ) {
         print("location :\(userLocation.location)")
     }
@@ -111,7 +112,7 @@ class SearchViewController: UIViewController, MAMapViewDelegate, AMapSearchDeleg
             if poiAnnotationView == nil {
                 poiAnnotationView = MAPinAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
             }
-            poiAnnotationView!.pinColor = UInt(MAPinAnnotationColorGreen)
+            poiAnnotationView!.pinColor = MAPinAnnotationColor.Green
             poiAnnotationView!.animatesDrop   = true
             poiAnnotationView!.canShowCallout = true
             
