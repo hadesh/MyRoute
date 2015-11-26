@@ -10,8 +10,8 @@ import UIKit
 
 class SearchViewController: UIViewController, MAMapViewDelegate, AMapSearchDelegate, UIGestureRecognizerDelegate {
 
-    var mapView: MAMapView?
-    var search: AMapSearchAPI?
+    var mapView: MAMapView!
+    var search: AMapSearchAPI!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +22,14 @@ class SearchViewController: UIViewController, MAMapViewDelegate, AMapSearchDeleg
         initMapView()
         initSearch()
         initToolBar()
-        initGestureRecognizer()
     }
 
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        mapView.showsUserLocation = true
+        mapView.userTrackingMode = MAUserTrackingMode.Follow
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -35,19 +40,14 @@ class SearchViewController: UIViewController, MAMapViewDelegate, AMapSearchDeleg
     func initMapView() {
         
         mapView = MAMapView(frame: self.view.bounds)
-        mapView!.delegate = self
+        mapView.delegate = self
         self.view.addSubview(mapView!)
-        
-        mapView!.showsUserLocation = true
-        mapView!.userTrackingMode = MAUserTrackingMode.Follow
-        
-        mapView!.setZoomLevel(15.1, animated: true)
     }
     
     func initSearch() {
 //        AMap
         search = AMapSearchAPI()
-        search?.delegate = self
+        search.delegate = self
     }
     
     func initToolBar() {
@@ -64,13 +64,6 @@ class SearchViewController: UIViewController, MAMapViewDelegate, AMapSearchDeleg
         self.view.addSubview(prompts)
     }
     
-    func initGestureRecognizer() {
-        
-        let longPress: UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: "handleLongPress:")
-        longPress.delegate = self
-        self.view.addGestureRecognizer(longPress)
-    }
-    
     func searchReGeocodeWithCoordinate(coordinate: CLLocationCoordinate2D!) {
         let regeo: AMapReGeocodeSearchRequest = AMapReGeocodeSearchRequest()
         
@@ -80,28 +73,18 @@ class SearchViewController: UIViewController, MAMapViewDelegate, AMapSearchDeleg
         self.search!.AMapReGoecodeSearch(regeo)
     }
     
-    //MARK:- Handle Gesture
-    
-    //    - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
-    
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
-    }
-    
-    func handleLongPress(gesture: UILongPressGestureRecognizer) {
-        if gesture.state == UIGestureRecognizerState.Began {
-            let coordinate = mapView!.convertPoint(gesture.locationInView(self.view), toCoordinateFromView: mapView)
-            
-            searchReGeocodeWithCoordinate(coordinate)
-        }
-    }
-    
     //MARK:- MAMapViewDelegate
     
-    func mapView(mapView: MAMapView , didUpdateUserLocation userLocation: MAUserLocation ) {
-        print("location :\(userLocation.location)")
+    func mapView(mapView: MAMapView!, didLongPressedAtCoordinate coordinate: CLLocationCoordinate2D) {
+        searchReGeocodeWithCoordinate(coordinate)
     }
     
+    func mapView(mapView: MAMapView!, didUpdateUserLocation userLocation: MAUserLocation!, updatingLocation: Bool) {
+        if updatingLocation {
+           print("location :\(userLocation.location)")
+        }
+    }
+
     func mapView(mapView: MAMapView, viewForAnnotation annotation: MAAnnotation) -> MAAnnotationView? {
         
         if annotation.isKindOfClass(MAPointAnnotation) {
@@ -128,7 +111,7 @@ class SearchViewController: UIViewController, MAMapViewDelegate, AMapSearchDeleg
             let renderer: MACircleRenderer = MACircleRenderer(overlay: overlay)
             renderer.fillColor = UIColor.greenColor().colorWithAlphaComponent(0.4)
             renderer.strokeColor = UIColor.redColor()
-            renderer.lineWidth = 4.0
+            renderer.lineWidth = 2.0
             
             return renderer
         }
@@ -143,10 +126,10 @@ class SearchViewController: UIViewController, MAMapViewDelegate, AMapSearchDeleg
     
     //MARK:- AMapSearchDelegate
     
-    func searchRequest(request: AnyObject!, didFailWithError error: NSError!) {
+    func AMapSearchRequest(request: AnyObject!, didFailWithError error: NSError!) {
         print("request :\(request), error: \(error)")
     }
-    
+
     //    - (void)onReGeocodeSearchDone:(AMapReGeocodeSearchRequest *)request response:(AMapReGeocodeSearchResponse *)response
     func onReGeocodeSearchDone(request: AMapReGeocodeSearchRequest, response: AMapReGeocodeSearchResponse) {
         

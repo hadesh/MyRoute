@@ -1,6 +1,14 @@
 MyRoute
 =======
 
+更新说明：
+
+```2015-11-26
+
+* 适配至Xcode7.1.1
+* 更新地图SDK为3.2.0，搜索SDK为3.1.0
+
+
 ### 前述
 
 Use swift with MAMapKit.

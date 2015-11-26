@@ -14,13 +14,13 @@ class Route: NSObject, NSCoding {
     
     var startTime: NSDate
     var endTime: NSDate
-    var locations: NSMutableArray
+    var locations: Array<CLLocation>
     
     override init() {
         
         startTime = NSDate()
         endTime = startTime
-        locations = NSMutableArray()
+        locations = Array()
     }
     
     deinit {
@@ -37,7 +37,7 @@ class Route: NSObject, NSCoding {
     required init?(coder aDecoder: NSCoder) {
         startTime = aDecoder.decodeObjectForKey("startTime") as! NSDate
         endTime = aDecoder.decodeObjectForKey("endTime") as! NSDate
-        locations = aDecoder.decodeObjectForKey("locations") as! NSMutableArray
+        locations = aDecoder.decodeObjectForKey("locations") as! Array
     }
     
     /// Interface
@@ -48,7 +48,7 @@ class Route: NSObject, NSCoding {
             return false
         }
         
-        let lastLocation: CLLocation? = locations.lastObject as? CLLocation
+        let lastLocation: CLLocation? = locations.last
         
         if lastLocation != nil {
             
@@ -58,8 +58,8 @@ class Route: NSObject, NSCoding {
                 return false
             }
         }
-        
-        locations.addObject(location!)
+
+        locations.append(location!)
         endTime = NSDate()
         
         return true
@@ -79,21 +79,11 @@ class Route: NSObject, NSCoding {
     }
     
     func startLocation() -> CLLocation? {
-        
-        if locations.count == 0 {
-            return nil
-        }
-        
-        return locations.firstObject as? CLLocation
+        return locations.first
     }
     
     func endLocation() -> CLLocation? {
-        
-        if locations.count == 0 {
-            return nil
-        }
-        
-        return locations.lastObject as? CLLocation
+        return locations.last
     }
     
     func totalDistance() -> CLLocationDistance {
@@ -101,14 +91,14 @@ class Route: NSObject, NSCoding {
         var distance: CLLocationDistance = 0
         if locations.count > 1 {
             
-            var currentLocation: CLLocation?
+            var currentLocation: CLLocation? = nil
             
-            for location: AnyObject in locations {
-                
-                let loc = location as! CLLocation
+            for location in locations {
 
-                distance += loc.distanceFromLocation(currentLocation!)
-                currentLocation = loc
+                if currentLocation != nil {
+                    distance += location.distanceFromLocation(currentLocation!)
+                }
+                currentLocation = location
             }
             
         }

@@ -10,15 +10,15 @@ import UIKit
 
 class MainViewController: UIViewController, MAMapViewDelegate {
     
-    var mapView: MAMapView?
+    var mapView: MAMapView!
     var isRecording: Bool = false
-    var locationButton: UIButton?
-    var searchButton: UIButton?
-    var imageLocated: UIImage?
-    var imageNotLocate: UIImage?
+    var locationButton: UIButton!
+    var searchButton: UIButton!
+    var imageLocated: UIImage!
+    var imageNotLocate: UIImage!
+    var tipView: TipView!
+    var statusView: StatusView!
     var currentRoute: Route?
-    var tipView: TipView?
-    var statusView: StatusView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,15 +45,16 @@ class MainViewController: UIViewController, MAMapViewDelegate {
     func initMapView() {
         
         mapView = MAMapView(frame: self.view.bounds)
-        mapView!.delegate = self
-        self.view.addSubview(mapView!)
-        self.view.sendSubviewToBack(mapView!)
+        mapView.delegate = self
+        self.view.addSubview(mapView)
+        self.view.sendSubviewToBack(mapView)
         
-        mapView!.showsUserLocation = true
-        mapView!.userTrackingMode = MAUserTrackingMode.Follow
-        
-        mapView!.distanceFilter = 10.0
-        mapView!.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+        mapView.showsUserLocation = true
+        mapView.userTrackingMode = MAUserTrackingMode.Follow
+        mapView.pausesLocationUpdatesAutomatically = false
+        mapView.allowsBackgroundLocationUpdates = true
+        mapView.distanceFilter = 10.0
+        mapView.desiredAccuracy = kCLLocationAccuracyBestForNavigation
     }
     
     func initToolBar() {

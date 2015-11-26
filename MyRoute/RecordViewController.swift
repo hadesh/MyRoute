@@ -63,7 +63,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellIdentifier = "routeCellIdentifier"
 
-        var cell: UITableViewCell? = tableView.dequeueReusableCellWithIdentifier(cellIdentifier)!
+        var cell: UITableViewCell? = tableView.dequeueReusableCellWithIdentifier(cellIdentifier)
         
         if cell == nil {
             
@@ -74,8 +74,8 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
             
             let route: Route = routes[indexPath.row]
             
-            cell!.textLabel!.text = route.title()
-            cell!.detailTextLabel!.text = route.detail()
+            cell!.textLabel?.text = route.title()
+            cell!.detailTextLabel?.text = route.detail()
         }
         
         return cell!
