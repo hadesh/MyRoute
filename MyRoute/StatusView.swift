@@ -51,7 +51,7 @@ class StatusView: UIView {
         control.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6)
         control.titleLabel!.font = UIFont.systemFontOfSize(16)
         control.setTitle("Opened", forState: UIControlState.Normal)
-        control.addTarget(self, action: "actionSwitch", forControlEvents: UIControlEvents.TouchUpInside)
+        control.addTarget(self, action: #selector(StatusView.actionSwitch), forControlEvents: UIControlEvents.TouchUpInside)
         
         addSubview(control)
     }

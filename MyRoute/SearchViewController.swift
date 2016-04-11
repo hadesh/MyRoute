@@ -149,5 +149,13 @@ class SearchViewController: UIViewController, MAMapViewDelegate, AMapSearchDeleg
             mapView!.addOverlay(overlay)
         }
     }
+    
+    func onPOISearchDone(request: AMapPOISearchBaseRequest!, response: AMapPOISearchResponse!) {
+        let pois = response.pois as! [AMapPOI];
+        
+        for poi in pois {
+            NSLog("%f, %f", poi.location.latitude, poi.location.longitude)
+        }
+    }
 
 }

@@ -39,7 +39,7 @@ class DisplayViewController: UIViewController, MAMapViewDelegate {
     
     func initToolBar() {
         
-        let playButtonItem: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "icon_play.png"), style: UIBarButtonItemStyle.Bordered, target: self, action: "actionPlayAndStop")
+        let playButtonItem: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "icon_play.png"), style: UIBarButtonItemStyle.Bordered, target: self, action: #selector(DisplayViewController.actionPlayAndStop))
         
         navigationItem.rightBarButtonItem = playButtonItem
     }
@@ -160,7 +160,7 @@ class DisplayViewController: UIViewController, MAMapViewDelegate {
             self.myLocation!.coordinate = nextCoord
             return
             }, completion: { (stop: Bool) -> Void in
-                self.currentLocationIndex++
+                self.currentLocationIndex += 1
                 if stop {
                     self.animateToNextCoordinate()
                 }

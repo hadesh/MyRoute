@@ -64,7 +64,7 @@ class ViewController: UIViewController, MAMapViewDelegate, AMapSearchDelegate, U
     
     func initGestureRecognizer() {
         
-        let longPress: UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: "handleLongPress:")
+        let longPress: UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(ViewController.handleLongPress(_:)))
         longPress.delegate = self
         self.view.addGestureRecognizer(longPress)
     }

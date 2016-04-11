@@ -64,6 +64,7 @@
 		8101BE68197CF8D30042E4EA /* icon_stop@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_stop@2x.png"; sourceTree = "<group>"; };
 		8101BE69197CF8D30042E4EA /* icon_play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_play@2x.png"; sourceTree = "<group>"; };
 		8101BE6D197D0AEA0042E4EA /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		8124C2F21C27E47C00EBD708 /* MyRoute-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyRoute-Bridging-Header.h"; sourceTree = "<group>"; };
 		815FB8681980F564001E52C0 /* aeroplane@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aeroplane@2x.png"; sourceTree = "<group>"; };
 		816265DE197E6752004ABDCC /* FileHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
 		81D4BC101A5BE58C006C6509 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
@@ -103,6 +104,7 @@
 		8101BE1A197CBBFC0042E4EA = {
 			isa = PBXGroup;
 			children = (
+				8124C2F21C27E47C00EBD708 /* MyRoute-Bridging-Header.h */,
 				8101BE53197CBC740042E4EA /* Foundation.framework */,
 				8101BE25197CBBFC0042E4EA /* MyRoute */,
 				8101BE38197CBBFC0042E4EA /* MyRouteTests */,

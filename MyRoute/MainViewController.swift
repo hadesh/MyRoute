@@ -59,11 +59,11 @@ class MainViewController: UIViewController, MAMapViewDelegate {
     
     func initToolBar() {
         
-        let rightButtonItem: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "icon_list.png"), style: UIBarButtonItemStyle.Bordered, target: self, action: "actionHistory")
+        let rightButtonItem: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "icon_list.png"), style: UIBarButtonItemStyle.Bordered, target: self, action: #selector(MainViewController.actionHistory))
         
         navigationItem.rightBarButtonItem = rightButtonItem
         
-        let leftButtonItem: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "icon_play.png"), style: UIBarButtonItemStyle.Bordered, target: self, action: "actionRecordAndStop")
+        let leftButtonItem: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "icon_play.png"), style: UIBarButtonItemStyle.Bordered, target: self, action: #selector(MainViewController.actionRecordAndStop))
 
         navigationItem.leftBarButtonItem = leftButtonItem
         
@@ -78,7 +78,7 @@ class MainViewController: UIViewController, MAMapViewDelegate {
         locationButton!.layer.shadowOffset = CGSizeMake(5, 5)
         locationButton!.layer.shadowRadius = 5
         
-        locationButton!.addTarget(self, action: "actionLocation:", forControlEvents: UIControlEvents.TouchUpInside)
+        locationButton!.addTarget(self, action: #selector(MainViewController.actionLocation(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         
         locationButton!.setImage(imageNotLocate, forState: UIControlState.Normal)
         
@@ -92,7 +92,7 @@ class MainViewController: UIViewController, MAMapViewDelegate {
         searchButton!.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
         searchButton!.setTitle("Search", forState: UIControlState.Normal)
         
-        searchButton!.addTarget(self, action: "actionSearch:", forControlEvents: UIControlEvents.TouchUpInside)
+        searchButton!.addTarget(self, action: #selector(MainViewController.actionSearch(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         view.addSubview(searchButton!)
     }
     
