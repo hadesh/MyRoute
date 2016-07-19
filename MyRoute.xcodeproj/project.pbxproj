@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C03ADE729DD99E541D830FD /* libPods-MyRoute.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98DDBD283129C9C7CFA2BCC8 /* libPods-MyRoute.a */; };
 		8101BE29197CBBFC0042E4EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8101BE28197CBBFC0042E4EA /* AppDelegate.swift */; };
 		8101BE2B197CBBFC0042E4EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8101BE2A197CBBFC0042E4EA /* ViewController.swift */; };
 		8101BE2E197CBBFC0042E4EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8101BE2C197CBBFC0042E4EA /* Main.storyboard */; };
 		8101BE30197CBBFC0042E4EA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8101BE2F197CBBFC0042E4EA /* Images.xcassets */; };
 		8101BE3C197CBBFC0042E4EA /* MyRouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8101BE3B197CBBFC0042E4EA /* MyRouteTests.swift */; };
-		8101BE54197CBC740042E4EA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8101BE53197CBC740042E4EA /* Foundation.framework */; };
 		8101BE58197CEFD00042E4EA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8101BE57197CEFD00042E4EA /* MainViewController.swift */; };
 		8101BE5A197CF0060042E4EA /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8101BE59197CF0060042E4EA /* RecordViewController.swift */; };
 		8101BE5C197CF0AD0042E4EA /* DisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8101BE5B197CF0AD0042E4EA /* DisplayViewController.swift */; };
@@ -28,7 +28,6 @@
 		816265DF197E6752004ABDCC /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816265DE197E6752004ABDCC /* FileHelper.swift */; };
 		81D4BC111A5BE58C006C6509 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81D4BC101A5BE58C006C6509 /* Launch Screen.xib */; };
 		81D4BC131A5BE7EF006C6509 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D4BC121A5BE7EF006C6509 /* SearchViewController.swift */; };
-		FDA64A9080606719914C0891 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F62681F1154B39A4B3262960 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		614719377AA623529C6B76BA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		2FA02FF3881CAE4E3E1B0EBC /* Pods-MyRoute.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyRoute.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyRoute/Pods-MyRoute.release.xcconfig"; sourceTree = "<group>"; };
+		5950A5F7B63D0AFEF95374C2 /* Pods-MyRoute.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyRoute.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyRoute/Pods-MyRoute.debug.xcconfig"; sourceTree = "<group>"; };
 		8101BE23197CBBFC0042E4EA /* MyRoute.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyRoute.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8101BE27197CBBFC0042E4EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8101BE28197CBBFC0042E4EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -52,7 +52,6 @@
 		8101BE35197CBBFC0042E4EA /* MyRouteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyRouteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8101BE3A197CBBFC0042E4EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8101BE3B197CBBFC0042E4EA /* MyRouteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRouteTests.swift; sourceTree = "<group>"; };
-		8101BE53197CBC740042E4EA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8101BE57197CEFD00042E4EA /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8101BE59197CF0060042E4EA /* RecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		8101BE5B197CF0AD0042E4EA /* DisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayViewController.swift; sourceTree = "<group>"; };
@@ -69,8 +68,7 @@
 		816265DE197E6752004ABDCC /* FileHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
 		81D4BC101A5BE58C006C6509 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		81D4BC121A5BE7EF006C6509 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		917116BDD37BCA2BD8028BAD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		F62681F1154B39A4B3262960 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		98DDBD283129C9C7CFA2BCC8 /* libPods-MyRoute.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyRoute.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8101BE54197CBC740042E4EA /* Foundation.framework in Frameworks */,
-				FDA64A9080606719914C0891 /* libPods.a in Frameworks */,
+				2C03ADE729DD99E541D830FD /* libPods-MyRoute.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,10 +90,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		20398A460922493F520D5A64 /* Frameworks */ = {
+		070AD399287D2F2DFC6E556C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F62681F1154B39A4B3262960 /* libPods.a */,
+				5950A5F7B63D0AFEF95374C2 /* Pods-MyRoute.debug.xcconfig */,
+				2FA02FF3881CAE4E3E1B0EBC /* Pods-MyRoute.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		69AA41B652963D537C0B393C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				98DDBD283129C9C7CFA2BCC8 /* libPods-MyRoute.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -105,12 +111,11 @@
 			isa = PBXGroup;
 			children = (
 				8124C2F21C27E47C00EBD708 /* MyRoute-Bridging-Header.h */,
-				8101BE53197CBC740042E4EA /* Foundation.framework */,
 				8101BE25197CBBFC0042E4EA /* MyRoute */,
 				8101BE38197CBBFC0042E4EA /* MyRouteTests */,
 				8101BE24197CBBFC0042E4EA /* Products */,
-				F9E24E31BB58311C0805F415 /* Pods */,
-				20398A460922493F520D5A64 /* Frameworks */,
+				070AD399287D2F2DFC6E556C /* Pods */,
+				69AA41B652963D537C0B393C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -199,15 +204,6 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		F9E24E31BB58311C0805F415 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				614719377AA623529C6B76BA /* Pods.debug.xcconfig */,
-				917116BDD37BCA2BD8028BAD /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -215,12 +211,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8101BE3F197CBBFC0042E4EA /* Build configuration list for PBXNativeTarget "MyRoute" */;
 			buildPhases = (
-				1DB08F9F3C236AFBE381B7F3 /* Check Pods Manifest.lock */,
+				8088932C42CF491F0FABB53D /* [CP] Check Pods Manifest.lock */,
 				8101BE1F197CBBFC0042E4EA /* Sources */,
 				8101BE20197CBBFC0042E4EA /* Frameworks */,
 				8101BE21197CBBFC0042E4EA /* Resources */,
-				04EC726E2A16D9E0B4C42D38 /* Copy Pods Resources */,
-				343BFE74314539439799A1D1 /* Embed Pods Frameworks */,
+				A838E4922E89779AF99A203A /* [CP] Embed Pods Frameworks */,
+				8D12E1CAE5C7C604E8E66428 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -320,29 +316,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		04EC726E2A16D9E0B4C42D38 /* Copy Pods Resources */ = {
+		8088932C42CF491F0FABB53D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		1DB08F9F3C236AFBE381B7F3 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,19 +331,34 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		343BFE74314539439799A1D1 /* Embed Pods Frameworks */ = {
+		8D12E1CAE5C7C604E8E66428 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyRoute/Pods-MyRoute-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A838E4922E89779AF99A203A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyRoute/Pods-MyRoute-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -497,7 +493,7 @@
 		};
 		8101BE40197CBBFC0042E4EA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 614719377AA623529C6B76BA /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 5950A5F7B63D0AFEF95374C2 /* Pods-MyRoute.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -518,7 +514,7 @@
 		};
 		8101BE41197CBBFC0042E4EA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 917116BDD37BCA2BD8028BAD /* Pods.release.xcconfig */;
+			baseConfigurationReference = 2FA02FF3881CAE4E3E1B0EBC /* Pods-MyRoute.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

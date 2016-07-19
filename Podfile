@@ -1,4 +1,6 @@
 platform :ios, '6.0'
-pod 'AMap2DMap'
-pod 'AMapSearch'
 
+target 'MyRoute' do
+	pod 'AMap2DMap', '4.0.0'
+	pod 'AMapSearch', '4.0.0'
+end 
