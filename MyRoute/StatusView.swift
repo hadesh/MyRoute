@@ -14,7 +14,7 @@ class StatusView: UIView {
     
     private var textView: UITextView!
     private var control: UIButton!
-    private var originalFrame: CGRect = CGRectZero
+    private var originalFrame: CGRect = CGRect.zero
     private var isOpen: Bool = false
     
     override init(frame: CGRect) {
@@ -29,29 +29,29 @@ class StatusView: UIView {
     
     func commonInit() {
         
-        self.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.4)
+        self.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         
         isOpen = true
-        textView = UITextView(frame: CGRectMake(0, controlHeight, CGRectGetWidth(frame), CGRectGetHeight(frame)))
-        control = UIButton(type: UIButtonType.Custom)
-        originalFrame = frame
+        textView = UITextView(frame: CGRect(x: 0, y: controlHeight, width: self.frame.width, height: self.frame.height))
+        control = UIButton(type: UIButtonType.custom)
+        originalFrame = self.frame
         
         ///
-        textView.backgroundColor = UIColor.clearColor()
-        textView.textColor = UIColor.whiteColor()
-        textView.font = UIFont.systemFontOfSize(12)
-        textView.editable = false
-        textView.selectable = false
-        textView.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
+        textView.backgroundColor = UIColor.clear
+        textView.textColor = UIColor.white
+        textView.font = UIFont.systemFont(ofSize: 12)
+        textView.isEditable = false
+        textView.isSelectable = false
+        textView.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
         
         addSubview(textView)
         
-        ///
-        control.frame = CGRectMake(0, 0, CGRectGetWidth(frame), controlHeight)
-        control.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6)
-        control.titleLabel!.font = UIFont.systemFontOfSize(16)
-        control.setTitle("Opened", forState: UIControlState.Normal)
-        control.addTarget(self, action: #selector(StatusView.actionSwitch), forControlEvents: UIControlEvents.TouchUpInside)
+        //
+        control.frame = CGRect(x: 0, y: 0, width: frame.width, height: controlHeight)
+        control.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        control.titleLabel!.font = UIFont.systemFont(ofSize: 16)
+        control.setTitle("Opened", for: UIControlState.normal)
+        control.addTarget(self, action: #selector(StatusView.actionSwitch), for: UIControlEvents.touchUpInside)
         
         addSubview(control)
     }
@@ -60,21 +60,20 @@ class StatusView: UIView {
         isOpen = !isOpen
         
         if isOpen {
-            control.setTitle("Opened", forState: UIControlState.Normal)
+            control.setTitle("Opened", for: UIControlState.normal)
             
-            UIView.animateWithDuration(0.25, animations: {
+            UIView.animate(withDuration: 0.25, animations: {
                 self.frame = self.originalFrame
                 
-                self.textView.frame = CGRectMake(0, self.controlHeight, CGRectGetWidth(self.originalFrame), CGRectGetHeight(self.originalFrame))
+                self.textView.frame = CGRect(x: 0, y: self.controlHeight, width: self.originalFrame.width, height: self.originalFrame.height)
                 })
         }
         else {
-            control.setTitle("Closed", forState: UIControlState.Normal)
+            control.setTitle("Closed", for: UIControlState.normal)
             
-            UIView.animateWithDuration(0.25, animations: {
-                self.frame = CGRectMake(self.originalFrame.origin.x, self.originalFrame.origin.y, self.originalFrame.size.width, self.controlHeight)
-                
-                self.textView.frame = CGRectMake(0, self.controlHeight, CGRectGetWidth(self.originalFrame), 0)
+            UIView.animate(withDuration: 0.25, animations: {
+                self.frame = CGRect(x: self.originalFrame.origin.x, y: self.originalFrame.origin.y, width: self.originalFrame.width, height: self.controlHeight)
+                self.textView.frame = CGRect(x: 0, y: self.controlHeight, width: self.originalFrame.width, height: 0)
                 })
         }
     }

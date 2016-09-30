@@ -13,7 +13,7 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
     var tableView: UITableView?
     var routes: [Route]
     
-    override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
+    override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: Bundle!) {
         
         routes = FileHelper.routesArray()
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -26,14 +26,14 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewDidLoad() {
         
-        self.view.backgroundColor = UIColor.grayColor()
+        self.view.backgroundColor = UIColor.gray
         initTableView()
     }
     
     func initTableView() {
         
         tableView = UITableView(frame: view.bounds)
-        tableView!.autoresizingMask = [UIViewAutoresizing.FlexibleHeight, UIViewAutoresizing.FlexibleWidth]
+        tableView!.autoresizingMask = [UIViewAutoresizing.flexibleHeight, UIViewAutoresizing.flexibleWidth]
         
         tableView!.delegate = self
         tableView!.dataSource = self
@@ -48,26 +48,26 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
         if !routes.isEmpty {
             
             let route: Route = routes[index]
-            FileHelper.deleteFile(route.title())
+            let _ = FileHelper.deleteFile(file: route.title())
             
-            routes.removeAtIndex(index)
+            routes.remove(at: index)
         }
     }
         
     //MARK:- UITableViewDataSource
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return routes.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "routeCellIdentifier"
 
-        var cell: UITableViewCell? = tableView.dequeueReusableCellWithIdentifier(cellIdentifier)
+        var cell: UITableViewCell? = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
         
         if cell == nil {
             
-            cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: cellIdentifier)
+            cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: cellIdentifier)
         }
         
         if !routes.isEmpty {
@@ -81,28 +81,28 @@ class RecordViewController: UIViewController, UITableViewDataSource, UITableView
         return cell!
     }
     
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         
         return true
     }
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
-        if editingStyle != UITableViewCellEditingStyle.Delete {
+        if editingStyle != UITableViewCellEditingStyle.delete {
             return
         }
         
-        deleteRoute(indexPath.row)
+        deleteRoute(index: indexPath.row)
         
-        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+        tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
         
     }
     
     //MARK:- UITableViewDelegate
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        tableView.deselectRow(at: indexPath as IndexPath, animated: true)
         
         if !routes.isEmpty {
             

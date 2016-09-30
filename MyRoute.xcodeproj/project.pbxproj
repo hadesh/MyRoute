@@ -9,10 +9,8 @@
 /* Begin PBXBuildFile section */
 		2C03ADE729DD99E541D830FD /* libPods-MyRoute.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98DDBD283129C9C7CFA2BCC8 /* libPods-MyRoute.a */; };
 		8101BE29197CBBFC0042E4EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8101BE28197CBBFC0042E4EA /* AppDelegate.swift */; };
-		8101BE2B197CBBFC0042E4EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8101BE2A197CBBFC0042E4EA /* ViewController.swift */; };
 		8101BE2E197CBBFC0042E4EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8101BE2C197CBBFC0042E4EA /* Main.storyboard */; };
 		8101BE30197CBBFC0042E4EA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8101BE2F197CBBFC0042E4EA /* Images.xcassets */; };
-		8101BE3C197CBBFC0042E4EA /* MyRouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8101BE3B197CBBFC0042E4EA /* MyRouteTests.swift */; };
 		8101BE58197CEFD00042E4EA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8101BE57197CEFD00042E4EA /* MainViewController.swift */; };
 		8101BE5A197CF0060042E4EA /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8101BE59197CF0060042E4EA /* RecordViewController.swift */; };
 		8101BE5C197CF0AD0042E4EA /* DisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8101BE5B197CF0AD0042E4EA /* DisplayViewController.swift */; };
@@ -30,26 +28,14 @@
 		81D4BC131A5BE7EF006C6509 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D4BC121A5BE7EF006C6509 /* SearchViewController.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		8101BE36197CBBFC0042E4EA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8101BE1B197CBBFC0042E4EA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8101BE22197CBBFC0042E4EA;
-			remoteInfo = MyRoute;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		2FA02FF3881CAE4E3E1B0EBC /* Pods-MyRoute.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyRoute.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyRoute/Pods-MyRoute.release.xcconfig"; sourceTree = "<group>"; };
 		5950A5F7B63D0AFEF95374C2 /* Pods-MyRoute.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyRoute.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyRoute/Pods-MyRoute.debug.xcconfig"; sourceTree = "<group>"; };
 		8101BE23197CBBFC0042E4EA /* MyRoute.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyRoute.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8101BE27197CBBFC0042E4EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8101BE28197CBBFC0042E4EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8101BE2A197CBBFC0042E4EA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8101BE2D197CBBFC0042E4EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8101BE2F197CBBFC0042E4EA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		8101BE35197CBBFC0042E4EA /* MyRouteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyRouteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8101BE3A197CBBFC0042E4EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8101BE3B197CBBFC0042E4EA /* MyRouteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRouteTests.swift; sourceTree = "<group>"; };
 		8101BE57197CEFD00042E4EA /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -77,13 +63,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C03ADE729DD99E541D830FD /* libPods-MyRoute.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8101BE32197CBBFC0042E4EA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,7 +102,6 @@
 			isa = PBXGroup;
 			children = (
 				8101BE23197CBBFC0042E4EA /* MyRoute.app */,
-				8101BE35197CBBFC0042E4EA /* MyRouteTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -132,7 +110,6 @@
 			isa = PBXGroup;
 			children = (
 				8101BE28197CBBFC0042E4EA /* AppDelegate.swift */,
-				8101BE2A197CBBFC0042E4EA /* ViewController.swift */,
 				8101BE57197CEFD00042E4EA /* MainViewController.swift */,
 				8101BE59197CF0060042E4EA /* RecordViewController.swift */,
 				8101BE5B197CF0AD0042E4EA /* DisplayViewController.swift */,
@@ -227,24 +204,6 @@
 			productReference = 8101BE23197CBBFC0042E4EA /* MyRoute.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8101BE34197CBBFC0042E4EA /* MyRouteTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8101BE42197CBBFC0042E4EA /* Build configuration list for PBXNativeTarget "MyRouteTests" */;
-			buildPhases = (
-				8101BE31197CBBFC0042E4EA /* Sources */,
-				8101BE32197CBBFC0042E4EA /* Frameworks */,
-				8101BE33197CBBFC0042E4EA /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				8101BE37197CBBFC0042E4EA /* PBXTargetDependency */,
-			);
-			name = MyRouteTests;
-			productName = MyRouteTests;
-			productReference = 8101BE35197CBBFC0042E4EA /* MyRouteTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -253,20 +212,19 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = AutoNavi;
 				TargetAttributes = {
 					8101BE22197CBBFC0042E4EA = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = YMJ372W38W;
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
 						};
-					};
-					8101BE34197CBBFC0042E4EA = {
-						CreatedOnToolsVersion = 6.0;
-						TestTargetID = 8101BE22197CBBFC0042E4EA;
 					};
 				};
 			};
@@ -284,7 +242,6 @@
 			projectRoot = "";
 			targets = (
 				8101BE22197CBBFC0042E4EA /* MyRoute */,
-				8101BE34197CBBFC0042E4EA /* MyRouteTests */,
 			);
 		};
 /* End PBXProject section */
@@ -303,13 +260,6 @@
 				8101BE6C197CF8D30042E4EA /* icon_play@2x.png in Resources */,
 				8101BE30197CBBFC0042E4EA /* Images.xcassets in Resources */,
 				81D4BC111A5BE58C006C6509 /* Launch Screen.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8101BE33197CBBFC0042E4EA /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,7 +322,6 @@
 				8101BE5C197CF0AD0042E4EA /* DisplayViewController.swift in Sources */,
 				8101BE58197CEFD00042E4EA /* MainViewController.swift in Sources */,
 				8101BE5E197CF0F80042E4EA /* StatusView.swift in Sources */,
-				8101BE2B197CBBFC0042E4EA /* ViewController.swift in Sources */,
 				8101BE61197CF1190042E4EA /* TipView.swift in Sources */,
 				816265DF197E6752004ABDCC /* FileHelper.swift in Sources */,
 				8101BE6E197D0AEA0042E4EA /* Route.swift in Sources */,
@@ -381,23 +330,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8101BE31197CBBFC0042E4EA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8101BE3C197CBBFC0042E4EA /* MyRouteTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		8101BE37197CBBFC0042E4EA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8101BE22197CBBFC0042E4EA /* MyRoute */;
-			targetProxy = 8101BE36197CBBFC0042E4EA /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		8101BE2C197CBBFC0042E4EA /* Main.storyboard */ = {
@@ -424,8 +357,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -434,6 +369,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -468,8 +404,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -477,6 +415,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -486,6 +425,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				METAL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -497,17 +437,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				ENABLE_BITCODE = NO;
+				DEVELOPMENT_TEAM = YMJ372W38W;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MyRoute/Extern",
 				);
 				INFOPLIST_FILE = MyRoute/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.autonavi.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = openPlatform_development;
 				SWIFT_OBJC_BRIDGING_HEADER = "MyRoute-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -518,56 +460,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				ENABLE_BITCODE = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = YMJ372W38W;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MyRoute/Extern",
 				);
 				INFOPLIST_FILE = MyRoute/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.autonavi.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = openPlatform_development;
 				SWIFT_OBJC_BRIDGING_HEADER = "MyRoute-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
-		};
-		8101BE43197CBBFC0042E4EA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MyRoute.app/MyRoute";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = MyRouteTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				METAL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.autonavi.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-			};
-			name = Debug;
-		};
-		8101BE44197CBBFC0042E4EA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MyRoute.app/MyRoute";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = MyRouteTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				METAL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.autonavi.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Release;
 		};
@@ -588,15 +495,6 @@
 			buildConfigurations = (
 				8101BE40197CBBFC0042E4EA /* Debug */,
 				8101BE41197CBBFC0042E4EA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8101BE42197CBBFC0042E4EA /* Build configuration list for PBXNativeTarget "MyRouteTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8101BE43197CBBFC0042E4EA /* Debug */,
-				8101BE44197CBBFC0042E4EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

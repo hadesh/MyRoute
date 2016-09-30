@@ -14,20 +14,20 @@ class FileHelper: NSObject {
    
     class func baseDirForRecords() -> String? {
         
-        let allpaths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+        let allpaths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
         
         var document: String? = allpaths.first
         
-        document = document?.stringByAppendingString("/" + RecordDirectoryName)
+        document = document?.appending("/" + RecordDirectoryName)
         
         var isDir: ObjCBool = false
         
-        var pathSuccess: Bool = NSFileManager.defaultManager().fileExistsAtPath(document!, isDirectory: &isDir)
+        var pathSuccess: Bool = FileManager.default.fileExists(atPath: document!, isDirectory: &isDir)
         
-        if (!pathSuccess || !isDir) {
+        if (!pathSuccess || !isDir.boolValue) {
             
             do {
-                try NSFileManager.defaultManager().createDirectoryAtPath(document!, withIntermediateDirectories: true, attributes: nil)
+                try FileManager.default.createDirectory(atPath: document!, withIntermediateDirectories: true, attributes: nil)
                 pathSuccess = true
             } catch _ {
                 pathSuccess = false
@@ -47,7 +47,7 @@ class FileHelper: NSObject {
             
             var result: [AnyObject]?
             do {
-                result = try NSFileManager.defaultManager().contentsOfDirectoryAtPath(document!)
+                result = try FileManager.default.contentsOfDirectory(atPath: document!) as [AnyObject]?
             } catch let error1 as NSError {
                 error = error1
                 result = nil
@@ -83,8 +83,8 @@ class FileHelper: NSObject {
                 
                 print("file: \(file)")
                 
-                let path = recordPathWithName(file)
-                let route = NSKeyedUnarchiver.unarchiveObjectWithFile(path!) as? Route
+                let path = recordPathWithName(name: file)
+                let route = NSKeyedUnarchiver.unarchiveObject(withFile: path!) as? Route
                 
                 if route != nil {
                     routeList.append(route!)
@@ -98,12 +98,12 @@ class FileHelper: NSObject {
     }
     
     class func deleteFile(file: String!) -> Bool! {
-        let path = recordPathWithName(file)
+        let path = recordPathWithName(name: file)
         
         var error: NSError?
         var success: Bool
         do {
-            try NSFileManager.defaultManager().removeItemAtPath(path!)
+            try FileManager.default.removeItem(atPath: path!)
             success = true
         } catch let error1 as NSError {
             error = error1

@@ -10,6 +10,13 @@ import Foundation
 
 class Route: NSObject, NSCoding {
     
+    public func encode(with aCoder: NSCoder) {
+        aCoder.encode(startTime, forKey: "startTime")
+        aCoder.encode(endTime, forKey: "endTime")
+        aCoder.encode(locations, forKey: "locations")
+    }
+
+    
     let distanceFilter: CLLocationDistance = 10
     
     var startTime: NSDate
@@ -28,16 +35,11 @@ class Route: NSObject, NSCoding {
     }
     
     /// NSCoding
-    
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(startTime, forKey: "startTime")
-        aCoder.encodeObject(endTime, forKey: "endTime")
-        aCoder.encodeObject(locations, forKey: "locations")
-    }
+
     required init?(coder aDecoder: NSCoder) {
-        startTime = aDecoder.decodeObjectForKey("startTime") as! NSDate
-        endTime = aDecoder.decodeObjectForKey("endTime") as! NSDate
-        locations = aDecoder.decodeObjectForKey("locations") as! Array
+        startTime = aDecoder.decodeObject(forKey: "startTime") as! NSDate
+        endTime = aDecoder.decodeObject(forKey: "endTime") as! NSDate
+        locations = aDecoder.decodeObject(forKey: "locations") as! Array
     }
     
     /// Interface
@@ -52,7 +54,7 @@ class Route: NSObject, NSCoding {
         
         if lastLocation != nil {
             
-            let distance: CLLocationDistance = lastLocation!.distanceFromLocation(location!)
+            let distance: CLLocationDistance = lastLocation!.distance(from: location!)
             
             if distance < distanceFilter {
                 return false
@@ -67,15 +69,15 @@ class Route: NSObject, NSCoding {
     
     func title() -> String! {
         
-        let formatter: NSDateFormatter = NSDateFormatter()
-        formatter.timeZone = NSTimeZone.localTimeZone()
+        let formatter: DateFormatter = DateFormatter()
+        formatter.timeZone = NSTimeZone.local
         formatter.dateFormat = "YYYY-MM-dd hh:mm:ss"
         
-        return formatter.stringFromDate(self.startTime)
+        return formatter.string(from: self.startTime as Date)
     }
     
     func detail() -> String! {
-        return NSString(format: "p: %d, d: %.2fm, t: %@", locations.count, totalDistance(), formattedDuration(totalDuration())) as String
+        return NSString(format: "p: %d, d: %.2fm, t: %@", locations.count, totalDistance(), formattedDuration(duration: totalDuration())) as String
     }
     
     func startLocation() -> CLLocation? {
@@ -96,7 +98,7 @@ class Route: NSObject, NSCoding {
             for location in locations {
 
                 if currentLocation != nil {
-                    distance += location.distanceFromLocation(currentLocation!)
+                    distance += location.distance(from: currentLocation!)
                 }
                 currentLocation = location
             }
@@ -106,18 +108,18 @@ class Route: NSObject, NSCoding {
         return distance
     }
     
-    func totalDuration() -> NSTimeInterval {
+    func totalDuration() -> TimeInterval {
         
-        return endTime.timeIntervalSinceDate(startTime)
+        return endTime.timeIntervalSince(startTime as Date)
     }
     
-    func formattedDuration(duration: NSTimeInterval) -> String {
+    func formattedDuration(duration: TimeInterval) -> String {
 
         var component: [Double] = [0, 0, 0]
         var t = duration
         
         for i in 0 ..< component.count {
-            component[i] = t % 60.0
+            component[i] = Double(Int(t) % 60)
             t /= 60.0
         }
         
