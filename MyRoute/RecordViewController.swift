@@ -11,22 +11,31 @@ import UIKit
 class RecordViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var tableView: UITableView?
-    var routes: [Route]
-    
-    override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: Bundle!) {
-        
-        routes = FileHelper.routesArray()
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        routes = FileHelper.routesArray()
-        super.init(coder: aDecoder)
-    }
+    var routes: [Route]!
     
     override func viewDidLoad() {
         
         self.view.backgroundColor = UIColor.gray
+        
+        routes = FileHelper.routesArray()
+        if routes.count == 0 {
+            // 如果没有数据，则添加测试数据。
+            let tempPath: String? = Bundle.main.path(forResource: "temp_20161024_152059", ofType: nil)
+            
+            if tempPath != nil {
+                let record: Route? = NSKeyedUnarchiver.unarchiveObject(withFile: tempPath!) as? Route
+                
+                if record != nil {
+                    
+                    let name: String! = record!.title()
+                    let path: String = FileHelper.filePathWithName(name: name)!
+                    
+                    NSKeyedArchiver.archiveRootObject(record!, toFile: path)
+                    routes = FileHelper.routesArray()
+                }
+            }
+        }
+        
         initTableView()
     }
     

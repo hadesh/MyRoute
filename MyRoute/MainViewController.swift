@@ -23,7 +23,7 @@ class MainViewController: UIViewController, MAMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.edgesForExtendedLayout = UIRectEdge.bottom
+        self.navigationController?.navigationBar.isTranslucent = false
         
         initToolBar()
         initMapView()
@@ -31,7 +31,10 @@ class MainViewController: UIViewController, MAMapViewDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
+        mapView.showsUserLocation = true
+        mapView.userTrackingMode = MAUserTrackingMode.follow
     }
 
     override func viewDidLayoutSubviews() {
@@ -45,16 +48,13 @@ class MainViewController: UIViewController, MAMapViewDelegate {
     func initMapView() {
         
         mapView = MAMapView(frame: self.view.bounds)
-        mapView.delegate = self
-        self.view.addSubview(mapView)
-        self.view.sendSubview(toBack: mapView)
-        
-        mapView.isShowsUserLocation = true
-        mapView.userTrackingMode = MAUserTrackingMode.follow
         mapView.pausesLocationUpdatesAutomatically = false
         mapView.allowsBackgroundLocationUpdates = true
         mapView.distanceFilter = 10.0
         mapView.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+        mapView.delegate = self
+        self.view.addSubview(mapView)
+        self.view.sendSubview(toBack: mapView)
     }
     
     func initToolBar() {
@@ -114,7 +114,7 @@ class MainViewController: UIViewController, MAMapViewDelegate {
         if !isRecording {
             print("stop location")
             mapView!.setUserTrackingMode(MAUserTrackingMode.none, animated: false)
-            mapView!.isShowsUserLocation = false
+            mapView!.showsUserLocation = false
         }
     }
     
@@ -159,7 +159,7 @@ class MainViewController: UIViewController, MAMapViewDelegate {
         if mapView!.userTrackingMode == MAUserTrackingMode.follow {
             
             mapView!.setUserTrackingMode(MAUserTrackingMode.none, animated: false)
-            mapView!.isShowsUserLocation = false
+            mapView!.showsUserLocation = false
         }
         else {
             mapView!.setUserTrackingMode(MAUserTrackingMode.follow, animated: true)
@@ -183,13 +183,13 @@ class MainViewController: UIViewController, MAMapViewDelegate {
     
     func saveRoute() {
 
-        if currentRoute == nil {
+        if currentRoute == nil || currentRoute!.locations.count < 2 {
             return
         }
         
         let name = currentRoute!.title()
         
-        let path = FileHelper.recordPathWithName(name: name)
+        let path = FileHelper.filePathWithName(name: name)
         
 //        println("path: \(path)")
         
@@ -208,20 +208,23 @@ class MainViewController: UIViewController, MAMapViewDelegate {
     
     //MARK:- MAMapViewDelegate
     
-    func mapView(_ mapView: MAMapView , didUpdate userLocation: MAUserLocation ) {
-        
-        if isRecording {
-            // filter the result
-            if userLocation.location.horizontalAccuracy < 80.0 {
-                
-                addLocation(location: userLocation.location)
-            }
+    func mapView(_ mapView: MAMapView!, didUpdate userLocation: MAUserLocation!, updatingLocation: Bool) {
+        if !updatingLocation {
+            return
         }
         
         let location: CLLocation? = userLocation.location
         
         if location == nil {
             return
+        }
+        
+        if isRecording {
+            // filter the result
+            if userLocation.location.horizontalAccuracy < 100.0 {
+                
+                addLocation(location: userLocation.location)
+            }
         }
         
         var speed = location!.speed
@@ -236,11 +239,9 @@ class MainViewController: UIViewController, MAMapViewDelegate {
             ("altitude", NSString(format: "%.2fm", location!.altitude) as String)]
         
         statusView!.showStatusInfo(info: infoArray)
+        
     }
-    
-    /** 
-    - (void)mapView:(MAMapView *)mapView didChangeUserTrackingMode:(MAUserTrackingMode)mode animated:(BOOL)animated;
-    */
+
     func mapView(_ mapView: MAMapView, didChange mode: MAUserTrackingMode, animated: Bool) {
         if mode == MAUserTrackingMode.none {
             locationButton?.setImage(imageNotLocate, for: UIControlState.normal)

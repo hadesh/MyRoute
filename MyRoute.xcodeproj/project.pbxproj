@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2C03ADE729DD99E541D830FD /* libPods-MyRoute.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98DDBD283129C9C7CFA2BCC8 /* libPods-MyRoute.a */; };
+		6ABF94031E34689D0021463D /* car1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ABF94021E34689D0021463D /* car1@2x.png */; };
 		8101BE29197CBBFC0042E4EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8101BE28197CBBFC0042E4EA /* AppDelegate.swift */; };
 		8101BE2E197CBBFC0042E4EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8101BE2C197CBBFC0042E4EA /* Main.storyboard */; };
 		8101BE30197CBBFC0042E4EA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8101BE2F197CBBFC0042E4EA /* Images.xcassets */; };
@@ -22,7 +23,6 @@
 		8101BE6B197CF8D30042E4EA /* icon_stop@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8101BE68197CF8D30042E4EA /* icon_stop@2x.png */; };
 		8101BE6C197CF8D30042E4EA /* icon_play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8101BE69197CF8D30042E4EA /* icon_play@2x.png */; };
 		8101BE6E197D0AEA0042E4EA /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8101BE6D197D0AEA0042E4EA /* Route.swift */; };
-		815FB8691980F564001E52C0 /* aeroplane@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 815FB8681980F564001E52C0 /* aeroplane@2x.png */; };
 		816265DF197E6752004ABDCC /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816265DE197E6752004ABDCC /* FileHelper.swift */; };
 		81D4BC111A5BE58C006C6509 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81D4BC101A5BE58C006C6509 /* Launch Screen.xib */; };
 		81D4BC131A5BE7EF006C6509 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D4BC121A5BE7EF006C6509 /* SearchViewController.swift */; };
@@ -31,6 +31,7 @@
 /* Begin PBXFileReference section */
 		2FA02FF3881CAE4E3E1B0EBC /* Pods-MyRoute.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyRoute.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyRoute/Pods-MyRoute.release.xcconfig"; sourceTree = "<group>"; };
 		5950A5F7B63D0AFEF95374C2 /* Pods-MyRoute.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyRoute.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyRoute/Pods-MyRoute.debug.xcconfig"; sourceTree = "<group>"; };
+		6ABF94021E34689D0021463D /* car1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "car1@2x.png"; sourceTree = "<group>"; };
 		8101BE23197CBBFC0042E4EA /* MyRoute.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyRoute.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8101BE27197CBBFC0042E4EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8101BE28197CBBFC0042E4EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -50,7 +51,6 @@
 		8101BE69197CF8D30042E4EA /* icon_play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_play@2x.png"; sourceTree = "<group>"; };
 		8101BE6D197D0AEA0042E4EA /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		8124C2F21C27E47C00EBD708 /* MyRoute-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyRoute-Bridging-Header.h"; sourceTree = "<group>"; };
-		815FB8681980F564001E52C0 /* aeroplane@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aeroplane@2x.png"; sourceTree = "<group>"; };
 		816265DE197E6752004ABDCC /* FileHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
 		81D4BC101A5BE58C006C6509 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		81D4BC121A5BE7EF006C6509 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -161,7 +161,7 @@
 		8101BE66197CF36F0042E4EA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				815FB8681980F564001E52C0 /* aeroplane@2x.png */,
+				6ABF94021E34689D0021463D /* car1@2x.png */,
 				8101BE67197CF8D30042E4EA /* icon_list@2x.png */,
 				8101BE68197CF8D30042E4EA /* icon_stop@2x.png */,
 				8101BE69197CF8D30042E4EA /* icon_play@2x.png */,
@@ -252,8 +252,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8101BE64197CF36B0042E4EA /* location_yes@2x.png in Resources */,
-				815FB8691980F564001E52C0 /* aeroplane@2x.png in Resources */,
 				8101BE65197CF36B0042E4EA /* location_no@2x.png in Resources */,
+				6ABF94031E34689D0021463D /* car1@2x.png in Resources */,
 				8101BE2E197CBBFC0042E4EA /* Main.storyboard in Resources */,
 				8101BE6A197CF8D30042E4EA /* icon_list@2x.png in Resources */,
 				8101BE6B197CF8D30042E4EA /* icon_stop@2x.png in Resources */,
@@ -438,10 +438,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = YMJ372W38W;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/MyRoute/Extern",
-				);
 				INFOPLIST_FILE = MyRoute/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -462,10 +458,6 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = YMJ372W38W;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/MyRoute/Extern",
-				);
 				INFOPLIST_FILE = MyRoute/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

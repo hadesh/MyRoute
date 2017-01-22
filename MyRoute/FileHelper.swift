@@ -63,7 +63,7 @@ class FileHelper: NSObject {
         return nil
     }
     
-    class func recordPathWithName(name: String!) -> String? {
+    class func filePathWithName(name: String!) -> String? {
         
         let document: String? = baseDirForRecords()
 //        let path: String? = document?.stringByAppendingPathComponent(name)
@@ -83,7 +83,7 @@ class FileHelper: NSObject {
                 
                 print("file: \(file)")
                 
-                let path = recordPathWithName(name: file)
+                let path = filePathWithName(name: file)
                 let route = NSKeyedUnarchiver.unarchiveObject(withFile: path!) as? Route
                 
                 if route != nil {
@@ -98,7 +98,7 @@ class FileHelper: NSObject {
     }
     
     class func deleteFile(file: String!) -> Bool! {
-        let path = recordPathWithName(name: file)
+        let path = filePathWithName(name: file)
         
         var error: NSError?
         var success: Bool

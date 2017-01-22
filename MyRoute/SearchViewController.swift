@@ -26,7 +26,7 @@ class SearchViewController: UIViewController, MAMapViewDelegate, AMapSearchDeleg
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        mapView.isShowsUserLocation = true
+        mapView.showsUserLocation = true
         mapView.userTrackingMode = MAUserTrackingMode.follow
     }
     
@@ -45,7 +45,6 @@ class SearchViewController: UIViewController, MAMapViewDelegate, AMapSearchDeleg
     }
     
     func initSearch() {
-//        AMap
         search = AMapSearchAPI()
         search.delegate = self
     }

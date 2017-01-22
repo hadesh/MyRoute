@@ -12,11 +12,13 @@ class DisplayViewController: UIViewController, MAMapViewDelegate {
 
     var route: Route?
     var mapView: MAMapView?
-    var myLocation: MAPointAnnotation?
+    var myLocation: MAAnimatedAnnotation?
     
     var isPlaying: Bool = false
-    var currentLocationIndex: Int = 0
-    var averageSpeed: Double = 0.001
+    
+    var traceCoordinates: Array<CLLocationCoordinate2D> = []
+    var duration: Double = 0.0
+    
     
     override func viewDidLoad() {
         
@@ -72,8 +74,9 @@ class DisplayViewController: UIViewController, MAMapViewDelegate {
         
         mapView!.showAnnotations(mapView!.annotations, animated: true)
         
-        ///
-        averageSpeed = route!.totalDistance() / route!.totalDuration()
+        /// init the trace coordinates
+        traceCoordinates = self.route!.coordinates()
+        duration = self.route!.totalDuration() / 2.0;
     }
     
     //MARK:- Helpers
@@ -91,85 +94,29 @@ class DisplayViewController: UIViewController, MAMapViewDelegate {
             navigationItem.rightBarButtonItem!.image = UIImage(named: "icon_stop.png")
             
             if myLocation == nil {
-                myLocation = MAPointAnnotation()
+                myLocation = MAAnimatedAnnotation()
                 myLocation!.title = "AMap"
                 myLocation!.coordinate = route!.startLocation()!.coordinate
                 
                 mapView!.addAnnotation(myLocation)
             }
             
-            animateToNextCoordinate()
+            weak var weakSelf = self
+
+            self.myLocation!.addMoveAnimation(withKeyCoordinates: &traceCoordinates, count: UInt(traceCoordinates.count), withDuration: CGFloat(duration), withName: "", completeCallback: { (isFinished) in
+                
+                if isFinished {
+                    weakSelf?.actionPlayAndStop()
+                }
+            })
         }
         else {
             navigationItem.rightBarButtonItem!.image = UIImage(named: "icon_play.png")
-            
-            let view: MAAnnotationView? = mapView!.view(for: myLocation)
-            if view != nil {
-                view!.layer.removeAllAnimations()
+            for animation: MAAnnotationMoveAnimation in (self.myLocation?.allMoveAnimations())! {
+                animation.cancel()
             }
-            
-        }
-    }
-    
-    func coordinateHeading(from: CLLocationCoordinate2D, to: CLLocationCoordinate2D) -> Double {
-        
-        if !CLLocationCoordinate2DIsValid(from) || !CLLocationCoordinate2DIsValid(to) {
-            return 0.0
-        }
-        
-        let delta_lat_y: Double = to.latitude - from.latitude
-        let delta_lon_x: Double = to.longitude - from.longitude
-        
-        if fabs(delta_lat_y) < 0.000001 {
-            return delta_lon_x < 0.0 ? 270.0 : 90.0
-        }
-        
-        var heading: Double = atan2(delta_lon_x, delta_lat_y) / M_PI * 180.0
-        
-        if heading < 0.0 {
-            heading += 360.0
-        }
-        return heading
-    }
-    
-    func animateToNextCoordinate() {
-        
-        if myLocation == nil {
-            return
-        }
-        
-        let coordiantes: [CLLocationCoordinate2D] = route!.coordinates()
-        
-        if currentLocationIndex == coordiantes.count {
-            currentLocationIndex = 0
-            actionPlayAndStop()
-            return
-        }
-
-        let nextCoord: CLLocationCoordinate2D = coordiantes[currentLocationIndex]
-        
-        let prevCoord: CLLocationCoordinate2D = currentLocationIndex == 0 ? nextCoord : myLocation!.coordinate
-        
-        let heading: Double = coordinateHeading(from: prevCoord, to: nextCoord)
-        
-        let distance: CLLocationDistance  = MAMetersBetweenMapPoints(MAMapPointForCoordinate(nextCoord), MAMapPointForCoordinate(prevCoord));
-       
-        let duration: TimeInterval = distance / (averageSpeed * 100)
-
-        UIView.animate(withDuration: duration, animations: { () -> Void in
-            self.myLocation!.coordinate = nextCoord
-            return
-            }, completion: { (stop: Bool) -> Void in
-                self.currentLocationIndex += 1
-                if stop {
-                    self.animateToNextCoordinate()
-                }
-                return
-        })
-        
-        let view: MAAnnotationView? = mapView!.view(for: myLocation)
-        if view != nil {
-            view!.transform = CGAffineTransform(rotationAngle: CGFloat(heading / 180.0 * M_PI));
+            myLocation?.coordinate = traceCoordinates[0]
+            myLocation?.movingDirection = 0.0
         }
     }
     
@@ -186,7 +133,7 @@ class DisplayViewController: UIViewController, MAMapViewDelegate {
                 poiAnnotationView = MAAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
             }
             
-            poiAnnotationView?.image = UIImage(named: "aeroplane.png")
+            poiAnnotationView?.image = UIImage(named: "car1")
             poiAnnotationView!.canShowCallout = false
             
             return poiAnnotationView;
